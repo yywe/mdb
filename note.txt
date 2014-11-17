@@ -1,4 +1,4 @@
-hello,world
-hello
-new hello
-from com
+This project is started for the purpose of learning the principle of
+relational database. And much of implemention has referenced the idea of
+SQLite and MySQL, but it is much more simple, for this reason there may be
+some bugs in the source, please be careful if you want to use in your project.
