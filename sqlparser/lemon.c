@@ -6,6 +6,8 @@
 **
 ** The author of this program disclaims copyright.
 */
+
+/* A little change on line 3357 */
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
@@ -3354,7 +3356,8 @@ int mhflag;     /* Output in makeheaders format if true */
 
   in = tplt_open(lemp);
   if( in==0 ) return;
-  out = file_open(lemp,".c","wb");
+  //out = file_open(lemp,".c","wb");
+  out = file_open(lemp,".cpp","wb");
   if( out==0 ){
     fclose(in);
     return;

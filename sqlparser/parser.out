@@ -1,0 +1,742 @@
+ State 0:
+          input ::= * cmdlist
+            [$]
+            To   (state  1) input ::= cmdlist *
+            To   (state  0) cmdlist ::= * cmdlist ecmd
+            To   (state  0) cmdlist ::= * ecmd
+          cmdlist ::= * cmdlist ecmd
+            [$ SEMI CREATE]
+            To   (state  1) cmdlist ::= cmdlist * ecmd
+          cmdlist ::= * ecmd
+            [$ SEMI CREATE]
+            To   (state 56) cmdlist ::= ecmd *
+            To   (state  0) ecmd ::= * SEMI
+            To   (state  0) ecmd ::= * explain cmdx SEMI
+          ecmd ::= * SEMI
+            [$ SEMI CREATE]
+            To   (state  3) ecmd ::= SEMI *
+          ecmd ::= * explain cmdx SEMI
+            [$ SEMI CREATE]
+            To   (state  4) ecmd ::= explain * cmdx SEMI
+      (6) explain ::= *
+            [CREATE]
+
+                          SEMI shift  3
+                        CREATE reduce 6
+                         input accept
+                       cmdlist shift  1
+                          ecmd shift  56
+                       explain shift  4
+
+State 1:
+      (0) input ::= cmdlist *
+            [$]
+            From (state  0) input ::= * cmdlist
+          cmdlist ::= cmdlist * ecmd
+            [$ SEMI CREATE]
+            To   (state  2) cmdlist ::= cmdlist ecmd *
+            To   (state  1) ecmd ::= * SEMI
+            To   (state  1) ecmd ::= * explain cmdx SEMI
+            From (state  0) cmdlist ::= * cmdlist ecmd
+          ecmd ::= * SEMI
+            [$ SEMI CREATE]
+            To   (state  3) ecmd ::= SEMI *
+          ecmd ::= * explain cmdx SEMI
+            [$ SEMI CREATE]
+            To   (state  4) ecmd ::= explain * cmdx SEMI
+      (6) explain ::= *
+            [CREATE]
+
+                             $ reduce 0
+                          SEMI shift  3
+                        CREATE reduce 6
+                          ecmd shift  2
+                       explain shift  4
+
+State 2:
+      (1) cmdlist ::= cmdlist ecmd *
+            [$ SEMI CREATE]
+            From (state  1) cmdlist ::= cmdlist * ecmd
+
+                     {default} reduce 1
+
+State 3:
+      (3) ecmd ::= SEMI *
+            [$ SEMI CREATE]
+            From (state  0) ecmd ::= * SEMI
+            From (state  1) ecmd ::= * SEMI
+
+                     {default} reduce 3
+
+State 4:
+          ecmd ::= explain * cmdx SEMI
+            [$ SEMI CREATE]
+            To   (state  5) ecmd ::= explain cmdx * SEMI
+            From (state  0) ecmd ::= * explain cmdx SEMI
+            From (state  1) ecmd ::= * explain cmdx SEMI
+          cmdx ::= * cmd
+            [SEMI]
+            To   (state  7) cmdx ::= cmd *
+            To   (state  4) cmd ::= * create_table create_table_args
+          cmd ::= * create_table create_table_args
+            [SEMI]
+            To   (state  8) cmd ::= create_table * create_table_args
+          create_table ::= * CREATE TABLE nm
+            [LP]
+            To   (state 53) create_table ::= CREATE * TABLE nm
+
+                        CREATE shift  53
+                          cmdx shift  5
+                           cmd shift  7
+                  create_table shift  8
+
+State 5:
+          ecmd ::= explain cmdx * SEMI
+            [$ SEMI CREATE]
+            To   (state  6) ecmd ::= explain cmdx SEMI *
+            From (state  4) ecmd ::= explain * cmdx SEMI
+
+                          SEMI shift  6
+
+State 6:
+      (4) ecmd ::= explain cmdx SEMI *
+            [$ SEMI CREATE]
+            From (state  5) ecmd ::= explain cmdx * SEMI
+
+                     {default} reduce 4
+
+State 7:
+      (5) cmdx ::= cmd *
+            [SEMI]
+            From (state  4) cmdx ::= * cmd
+
+                          SEMI reduce 5
+
+State 8:
+          cmd ::= create_table * create_table_args
+            [SEMI]
+            To   (state  9) cmd ::= create_table create_table_args *
+            To   (state  8) create_table_args ::= * LP columnlist conslist_opt RP
+            From (state  4) cmd ::= * create_table create_table_args
+          create_table_args ::= * LP columnlist conslist_opt RP
+            [SEMI]
+            To   (state 10) create_table_args ::= LP * columnlist conslist_opt RP
+
+                            LP shift  10
+             create_table_args shift  9
+
+State 9:
+      (7) cmd ::= create_table create_table_args *
+            [SEMI]
+            From (state  8) cmd ::= create_table * create_table_args
+
+                          SEMI reduce 7
+
+State 10:
+          create_table_args ::= LP * columnlist conslist_opt RP
+            [SEMI]
+            To   (state 11) create_table_args ::= LP columnlist * conslist_opt RP
+            From (state  8) create_table_args ::= * LP columnlist conslist_opt RP
+          columnlist ::= * columnlist COMMA column
+            [RP COMMA]
+            To   (state 11) columnlist ::= columnlist * COMMA column
+          columnlist ::= * column
+            [RP COMMA]
+            To   (state 52) columnlist ::= column *
+            To   (state 10) column ::= * columnid type carglist
+          column ::= * columnid type carglist
+            [RP COMMA]
+            To   (state 16) column ::= columnid * type carglist
+            To   (state 10) columnid ::= * nm
+          columnid ::= * nm
+            [RP COMMA ID STRING CONSTRAINT DEFAULT NULL]
+            To   (state 51) columnid ::= nm *
+            To   (state 10) nm ::= * ID
+            To   (state 10) nm ::= * STRING
+          nm ::= * ID
+            [RP COMMA ID STRING CONSTRAINT DEFAULT NULL]
+            To   (state 21) nm ::= ID *
+          nm ::= * STRING
+            [RP COMMA ID STRING CONSTRAINT DEFAULT NULL]
+            To   (state 22) nm ::= STRING *
+
+                            ID shift  21
+                        STRING shift  22
+                            nm shift  51
+                    columnlist shift  11
+                        column shift  52
+                      columnid shift  16
+
+State 11:
+          create_table_args ::= LP columnlist * conslist_opt RP
+            [SEMI]
+            To   (state 12) create_table_args ::= LP columnlist conslist_opt * RP
+            From (state 10) create_table_args ::= LP * columnlist conslist_opt RP
+          columnlist ::= columnlist * COMMA column
+            [RP COMMA]
+            To   (state 14) columnlist ::= columnlist COMMA * column
+            From (state 10) columnlist ::= * columnlist COMMA column
+     (34) conslist_opt ::= *
+            [RP]
+
+                            RP reduce 34
+                         COMMA shift  14
+                  conslist_opt shift  12
+
+State 12:
+          create_table_args ::= LP columnlist conslist_opt * RP
+            [SEMI]
+            To   (state 13) create_table_args ::= LP columnlist conslist_opt RP *
+            From (state 11) create_table_args ::= LP columnlist * conslist_opt RP
+
+                            RP shift  13
+
+State 13:
+      (9) create_table_args ::= LP columnlist conslist_opt RP *
+            [SEMI]
+            From (state 12) create_table_args ::= LP columnlist conslist_opt * RP
+
+                          SEMI reduce 9
+
+State 14:
+          columnlist ::= columnlist COMMA * column
+            [RP COMMA]
+            To   (state 15) columnlist ::= columnlist COMMA column *
+            To   (state 14) column ::= * columnid type carglist
+            From (state 11) columnlist ::= columnlist * COMMA column
+          column ::= * columnid type carglist
+            [RP COMMA]
+            To   (state 16) column ::= columnid * type carglist
+            To   (state 14) columnid ::= * nm
+          columnid ::= * nm
+            [RP COMMA ID STRING CONSTRAINT DEFAULT NULL]
+            To   (state 51) columnid ::= nm *
+            To   (state 14) nm ::= * ID
+            To   (state 14) nm ::= * STRING
+          nm ::= * ID
+            [RP COMMA ID STRING CONSTRAINT DEFAULT NULL]
+            To   (state 21) nm ::= ID *
+          nm ::= * STRING
+            [RP COMMA ID STRING CONSTRAINT DEFAULT NULL]
+            To   (state 22) nm ::= STRING *
+
+                            ID shift  21
+                        STRING shift  22
+                            nm shift  51
+                        column shift  15
+                      columnid shift  16
+
+State 15:
+     (10) columnlist ::= columnlist COMMA column *
+            [RP COMMA]
+            From (state 14) columnlist ::= columnlist COMMA * column
+
+                     {default} reduce 10
+
+State 16:
+          column ::= columnid * type carglist
+            [RP COMMA]
+            To   (state 17) column ::= columnid type * carglist
+            To   (state 16) type ::= *
+            To   (state 16) type ::= * typetoken
+            From (state 10) column ::= * columnid type carglist
+            From (state 14) column ::= * columnid type carglist
+          ids ::= * ID
+            [LP RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 31) ids ::= ID *
+          ids ::= * STRING
+            [LP RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 32) ids ::= STRING *
+     (19) type ::= *
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+          type ::= * typetoken
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 33) type ::= typetoken *
+            To   (state 16) typetoken ::= * typename
+            To   (state 16) typetoken ::= * typename LP signed RP
+            To   (state 16) typetoken ::= * typename LP signed COMMA signed RP
+          typetoken ::= * typename
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 34) typetoken ::= typename *
+            To   (state 16) typename ::= * ids
+          typetoken ::= * typename LP signed RP
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 34) typetoken ::= typename * LP signed RP
+          typetoken ::= * typename LP signed COMMA signed RP
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 34) typetoken ::= typename * LP signed COMMA signed RP
+          typename ::= * ids
+            [LP RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 50) typename ::= ids *
+            To   (state 16) ids ::= * ID
+            To   (state 16) ids ::= * STRING
+
+                            ID shift  31
+                        STRING shift  32
+                          type shift  17
+                           ids shift  50
+                     typetoken shift  33
+                      typename shift  34
+                     {default} reduce 19
+
+State 17:
+          column ::= columnid type * carglist
+            [RP COMMA]
+            To   (state 18) column ::= columnid type carglist *
+            To   (state 17) carglist ::= * carglist carg
+            To   (state 17) carglist ::= *
+            From (state 16) column ::= columnid * type carglist
+          carglist ::= * carglist carg
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 18) carglist ::= carglist * carg
+     (28) carglist ::= *
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+
+                      carglist shift  18
+                     {default} reduce 28
+
+State 18:
+     (12) column ::= columnid type carglist *
+            [RP COMMA]
+            From (state 17) column ::= columnid type * carglist
+          carglist ::= carglist * carg
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 19) carglist ::= carglist carg *
+            To   (state 18) carg ::= * CONSTRAINT nm ccons
+            To   (state 18) carg ::= * ccons
+            To   (state 18) carg ::= * DEFAULT id
+            From (state 17) carglist ::= * carglist carg
+          carg ::= * CONSTRAINT nm ccons
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 20) carg ::= CONSTRAINT * nm ccons
+          carg ::= * ccons
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 27) carg ::= ccons *
+            To   (state 18) ccons ::= * NULL onconf
+          carg ::= * DEFAULT id
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 28) carg ::= DEFAULT * id
+          ccons ::= * NULL onconf
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 25) ccons ::= NULL * onconf
+
+                    CONSTRAINT shift  20
+                       DEFAULT shift  28
+                          NULL shift  25
+                          carg shift  19
+                         ccons shift  27
+                     {default} reduce 12
+
+State 19:
+     (27) carglist ::= carglist carg *
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            From (state 18) carglist ::= carglist * carg
+
+                     {default} reduce 27
+
+State 20:
+          nm ::= * ID
+            [NULL]
+            To   (state 21) nm ::= ID *
+          nm ::= * STRING
+            [NULL]
+            To   (state 22) nm ::= STRING *
+          carg ::= CONSTRAINT * nm ccons
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 23) carg ::= CONSTRAINT nm * ccons
+            From (state 18) carg ::= * CONSTRAINT nm ccons
+
+                            ID shift  21
+                        STRING shift  22
+                            nm shift  23
+
+State 21:
+     (17) nm ::= ID *
+            [LP RP COMMA ID STRING CONSTRAINT DEFAULT NULL]
+            From (state 54) nm ::= * ID
+            From (state 10) nm ::= * ID
+            From (state 14) nm ::= * ID
+            From (state 20) nm ::= * ID
+
+                     {default} reduce 17
+
+State 22:
+     (18) nm ::= STRING *
+            [LP RP COMMA ID STRING CONSTRAINT DEFAULT NULL]
+            From (state 54) nm ::= * STRING
+            From (state 10) nm ::= * STRING
+            From (state 14) nm ::= * STRING
+            From (state 20) nm ::= * STRING
+
+                     {default} reduce 18
+
+State 23:
+          carg ::= CONSTRAINT nm * ccons
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 24) carg ::= CONSTRAINT nm ccons *
+            To   (state 23) ccons ::= * NULL onconf
+            From (state 20) carg ::= CONSTRAINT * nm ccons
+          ccons ::= * NULL onconf
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 25) ccons ::= NULL * onconf
+
+                          NULL shift  25
+                         ccons shift  24
+
+State 24:
+     (29) carg ::= CONSTRAINT nm ccons *
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            From (state 23) carg ::= CONSTRAINT nm * ccons
+
+                     {default} reduce 29
+
+State 25:
+          ccons ::= NULL * onconf
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 26) ccons ::= NULL onconf *
+            To   (state 25) onconf ::= *
+            From (state 18) ccons ::= * NULL onconf
+            From (state 23) ccons ::= * NULL onconf
+     (33) onconf ::= *
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+
+                        onconf shift  26
+                     {default} reduce 33
+
+State 26:
+     (32) ccons ::= NULL onconf *
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            From (state 25) ccons ::= NULL * onconf
+
+                     {default} reduce 32
+
+State 27:
+     (30) carg ::= ccons *
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            From (state 18) carg ::= * ccons
+
+                     {default} reduce 30
+
+State 28:
+          id ::= * ID
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 29) id ::= ID *
+          carg ::= DEFAULT * id
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 30) carg ::= DEFAULT id *
+            To   (state 28) id ::= * ID
+            From (state 18) carg ::= * DEFAULT id
+
+                            ID shift  29
+                            id shift  30
+
+State 29:
+     (14) id ::= ID *
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            From (state 28) id ::= * ID
+
+                     {default} reduce 14
+
+State 30:
+     (31) carg ::= DEFAULT id *
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            From (state 28) carg ::= DEFAULT * id
+
+                     {default} reduce 31
+
+State 31:
+     (15) ids ::= ID *
+            [LP RP COMMA CONSTRAINT DEFAULT NULL]
+            From (state 16) ids ::= * ID
+
+                     {default} reduce 15
+
+State 32:
+     (16) ids ::= STRING *
+            [LP RP COMMA CONSTRAINT DEFAULT NULL]
+            From (state 16) ids ::= * STRING
+
+                     {default} reduce 16
+
+State 33:
+     (20) type ::= typetoken *
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            From (state 16) type ::= * typetoken
+
+                     {default} reduce 20
+
+State 34:
+     (21) typetoken ::= typename *
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            From (state 16) typetoken ::= * typename
+          typetoken ::= typename * LP signed RP
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 35) typetoken ::= typename LP * signed RP
+            From (state 16) typetoken ::= * typename LP signed RP
+          typetoken ::= typename * LP signed COMMA signed RP
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 35) typetoken ::= typename LP * signed COMMA signed RP
+            From (state 16) typetoken ::= * typename LP signed COMMA signed RP
+
+                            LP shift  35
+                     {default} reduce 21
+
+State 35:
+          typetoken ::= typename LP * signed RP
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 36) typetoken ::= typename LP signed * RP
+            From (state 34) typetoken ::= typename * LP signed RP
+          typetoken ::= typename LP * signed COMMA signed RP
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 36) typetoken ::= typename LP signed * COMMA signed RP
+            From (state 34) typetoken ::= typename * LP signed COMMA signed RP
+          signed ::= * plus_num
+            [RP COMMA]
+            To   (state 41) signed ::= plus_num *
+            To   (state 35) plus_num ::= * plus_opt number
+          signed ::= * minus_num
+            [RP COMMA]
+            To   (state 42) signed ::= minus_num *
+            To   (state 35) minus_num ::= * MINUS number
+          plus_num ::= * plus_opt number
+            [RP COMMA]
+            To   (state 43) plus_num ::= plus_opt * number
+          minus_num ::= * MINUS number
+            [RP COMMA]
+            To   (state 47) minus_num ::= MINUS * number
+          plus_opt ::= * PLUS
+            [INTEGER FLOAT]
+            To   (state 49) plus_opt ::= PLUS *
+     (40) plus_opt ::= *
+            [INTEGER FLOAT]
+
+                         MINUS shift  47
+                          PLUS shift  49
+                        signed shift  36
+                      plus_num shift  41
+                     minus_num shift  42
+                      plus_opt shift  43
+                     {default} reduce 40
+
+State 36:
+          typetoken ::= typename LP signed * RP
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 37) typetoken ::= typename LP signed RP *
+            From (state 35) typetoken ::= typename LP * signed RP
+          typetoken ::= typename LP signed * COMMA signed RP
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 38) typetoken ::= typename LP signed COMMA * signed RP
+            From (state 35) typetoken ::= typename LP * signed COMMA signed RP
+
+                            RP shift  37
+                         COMMA shift  38
+
+State 37:
+     (22) typetoken ::= typename LP signed RP *
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            From (state 36) typetoken ::= typename LP signed * RP
+
+                     {default} reduce 22
+
+State 38:
+          typetoken ::= typename LP signed COMMA * signed RP
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 39) typetoken ::= typename LP signed COMMA signed * RP
+            From (state 36) typetoken ::= typename LP signed * COMMA signed RP
+          signed ::= * plus_num
+            [RP]
+            To   (state 41) signed ::= plus_num *
+            To   (state 38) plus_num ::= * plus_opt number
+          signed ::= * minus_num
+            [RP]
+            To   (state 42) signed ::= minus_num *
+            To   (state 38) minus_num ::= * MINUS number
+          plus_num ::= * plus_opt number
+            [RP]
+            To   (state 43) plus_num ::= plus_opt * number
+          minus_num ::= * MINUS number
+            [RP]
+            To   (state 47) minus_num ::= MINUS * number
+          plus_opt ::= * PLUS
+            [INTEGER FLOAT]
+            To   (state 49) plus_opt ::= PLUS *
+     (40) plus_opt ::= *
+            [INTEGER FLOAT]
+
+                         MINUS shift  47
+                          PLUS shift  49
+                        signed shift  39
+                      plus_num shift  41
+                     minus_num shift  42
+                      plus_opt shift  43
+                     {default} reduce 40
+
+State 39:
+          typetoken ::= typename LP signed COMMA signed * RP
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            To   (state 40) typetoken ::= typename LP signed COMMA signed RP *
+            From (state 38) typetoken ::= typename LP signed COMMA * signed RP
+
+                            RP shift  40
+
+State 40:
+     (23) typetoken ::= typename LP signed COMMA signed RP *
+            [RP COMMA CONSTRAINT DEFAULT NULL]
+            From (state 39) typetoken ::= typename LP signed COMMA signed * RP
+
+                     {default} reduce 23
+
+State 41:
+     (25) signed ::= plus_num *
+            [RP COMMA]
+            From (state 35) signed ::= * plus_num
+            From (state 38) signed ::= * plus_num
+
+                     {default} reduce 25
+
+State 42:
+     (26) signed ::= minus_num *
+            [RP COMMA]
+            From (state 35) signed ::= * minus_num
+            From (state 38) signed ::= * minus_num
+
+                     {default} reduce 26
+
+State 43:
+          plus_num ::= plus_opt * number
+            [RP COMMA]
+            To   (state 44) plus_num ::= plus_opt number *
+            To   (state 43) number ::= * INTEGER
+            To   (state 43) number ::= * FLOAT
+            From (state 35) plus_num ::= * plus_opt number
+            From (state 38) plus_num ::= * plus_opt number
+          number ::= * INTEGER
+            [RP COMMA]
+            To   (state 45) number ::= INTEGER *
+          number ::= * FLOAT
+            [RP COMMA]
+            To   (state 46) number ::= FLOAT *
+
+                       INTEGER shift  45
+                         FLOAT shift  46
+                        number shift  44
+
+State 44:
+     (35) plus_num ::= plus_opt number *
+            [RP COMMA]
+            From (state 43) plus_num ::= plus_opt * number
+
+                     {default} reduce 35
+
+State 45:
+     (37) number ::= INTEGER *
+            [RP COMMA]
+            From (state 47) number ::= * INTEGER
+            From (state 43) number ::= * INTEGER
+
+                     {default} reduce 37
+
+State 46:
+     (38) number ::= FLOAT *
+            [RP COMMA]
+            From (state 47) number ::= * FLOAT
+            From (state 43) number ::= * FLOAT
+
+                     {default} reduce 38
+
+State 47:
+          minus_num ::= MINUS * number
+            [RP COMMA]
+            To   (state 48) minus_num ::= MINUS number *
+            To   (state 47) number ::= * INTEGER
+            To   (state 47) number ::= * FLOAT
+            From (state 35) minus_num ::= * MINUS number
+            From (state 38) minus_num ::= * MINUS number
+          number ::= * INTEGER
+            [RP COMMA]
+            To   (state 45) number ::= INTEGER *
+          number ::= * FLOAT
+            [RP COMMA]
+            To   (state 46) number ::= FLOAT *
+
+                       INTEGER shift  45
+                         FLOAT shift  46
+                        number shift  48
+
+State 48:
+     (36) minus_num ::= MINUS number *
+            [RP COMMA]
+            From (state 47) minus_num ::= MINUS * number
+
+                     {default} reduce 36
+
+State 49:
+     (39) plus_opt ::= PLUS *
+            [INTEGER FLOAT]
+            From (state 35) plus_opt ::= * PLUS
+            From (state 38) plus_opt ::= * PLUS
+
+                     {default} reduce 39
+
+State 50:
+     (24) typename ::= ids *
+            [LP RP COMMA CONSTRAINT DEFAULT NULL]
+            From (state 16) typename ::= * ids
+
+                     {default} reduce 24
+
+State 51:
+     (13) columnid ::= nm *
+            [RP COMMA ID STRING CONSTRAINT DEFAULT NULL]
+            From (state 10) columnid ::= * nm
+            From (state 14) columnid ::= * nm
+
+                     {default} reduce 13
+
+State 52:
+     (11) columnlist ::= column *
+            [RP COMMA]
+            From (state 10) columnlist ::= * column
+
+                     {default} reduce 11
+
+State 53:
+          create_table ::= CREATE * TABLE nm
+            [LP]
+            To   (state 54) create_table ::= CREATE TABLE * nm
+            From (state  4) create_table ::= * CREATE TABLE nm
+
+                         TABLE shift  54
+
+State 54:
+          create_table ::= CREATE TABLE * nm
+            [LP]
+            To   (state 55) create_table ::= CREATE TABLE nm *
+            To   (state 54) nm ::= * ID
+            To   (state 54) nm ::= * STRING
+            From (state 53) create_table ::= CREATE * TABLE nm
+          nm ::= * ID
+            [LP]
+            To   (state 21) nm ::= ID *
+          nm ::= * STRING
+            [LP]
+            To   (state 22) nm ::= STRING *
+
+                            ID shift  21
+                        STRING shift  22
+                            nm shift  55
+
+State 55:
+      (8) create_table ::= CREATE TABLE nm *
+            [LP]
+            From (state 54) create_table ::= CREATE TABLE * nm
+
+                            LP reduce 8
+
+State 56:
+      (2) cmdlist ::= ecmd *
+            [$ SEMI CREATE]
+            From (state  0) cmdlist ::= * ecmd
+
+                     {default} reduce 2
+
