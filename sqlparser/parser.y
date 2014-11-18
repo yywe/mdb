@@ -8,19 +8,7 @@
 extern "C" {
 #endif
 
-typedef struct Token{
-	const unsigned char *z;
-	unsigned dyn:1;
-	unsigned n:31;
-}Token;
-
-typedef struct Parse{
-	const char *zSql;
-}Parse;
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <parser.h>
+#include "../mdbheader.h"
 
 #ifdef __cplusplus
 }
@@ -37,6 +25,9 @@ typedef struct Parse{
 }
 
 %name mdbParser
+
+%nonassoc END_OF_FILE ILLEGAL SPACE UNCLOSED_STRING COMMENT FUNCTION COLUMN
+	AGG_FUNCTION AGG_COLUMN CONST_FUNC.
 
 input ::= cmdlist.
 cmdlist ::= cmdlist ecmd.
