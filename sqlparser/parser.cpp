@@ -10,24 +10,12 @@
 extern "C" {
 #endif
 
-typedef struct Token{
-	const unsigned char *z;
-	unsigned dyn:1;
-	unsigned n:31;
-}Token;
-
-typedef struct Parse{
-	const char *zSql;
-}Parse;
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <parser.h>
+#include "../mdbheader.h"
 
 #ifdef __cplusplus
 }
 #endif
-#line 32 "parser.cpp"
+#line 20 "parser.cpp"
 /* Next is all token values, in a form suitable for use by makeheaders.
 ** This section will be null unless lemon is run with the -m switch.
 */
@@ -77,14 +65,14 @@ typedef struct Parse{
 **                       defined, then do no error processing.
 */
 #define YYCODETYPE unsigned char
-#define YYNOCODE 45
+#define YYNOCODE 55
 #define YYACTIONTYPE unsigned char
 #define mdbParserTOKENTYPE Token
 typedef union {
   mdbParserTOKENTYPE yy0;
-  int yy20;
-  Token yy34;
-  int yy89;
+  int yy4;
+  Token yy90;
+  int yy109;
 } YYMINORTYPE;
 #define YYSTACKDEPTH 100
 #define mdbParserARG_SDECL Parse *pParse;
@@ -93,8 +81,8 @@ typedef union {
 #define mdbParserARG_STORE yypParser->pParse = pParse
 #define YYNSTATE 57
 #define YYNRULE 41
-#define YYERRORSYMBOL 16
-#define YYERRSYMDT yy89
+#define YYERRORSYMBOL 26
+#define YYERRSYMDT yy109
 #define YY_NO_ACTION      (YYNSTATE+YYNRULE+2)
 #define YY_ACCEPT_ACTION  (YYNSTATE+YYNRULE+1)
 #define YY_ERROR_ACTION   (YYNSTATE+YYNRULE)
@@ -148,41 +136,41 @@ typedef union {
 */
 static const YYACTIONTYPE yy_action[] = {
  /*     0 */    99,    1,   56,    4,   51,   11,   17,   52,   16,   50,
- /*    10 */    33,   34,   53,   36,   41,   42,   39,   41,   42,   43,
- /*    20 */     3,   63,   43,   57,    3,   63,    5,    7,    8,   51,
- /*    30 */     2,    4,   15,   16,   20,   28,   25,   21,   22,   91,
- /*    40 */    14,   47,   31,   32,   49,   19,   27,   37,   38,   45,
- /*    50 */    46,    6,   62,   10,   64,    9,   66,   13,   18,   12,
- /*    60 */    24,   40,   23,   26,   29,   25,   55,   35,   54,   44,
- /*    70 */    30,   48,   65,
+ /*    10 */    33,   34,   57,   36,   41,   42,   39,   41,   42,   43,
+ /*    20 */     3,   63,   43,    3,   63,    5,    7,    8,   51,    2,
+ /*    30 */     4,   15,   16,   20,   28,   25,   21,   22,   91,   14,
+ /*    40 */    47,   31,   32,   49,   19,   27,   37,   38,   45,   46,
+ /*    50 */    53,    6,   62,   10,    9,   64,   66,   13,   12,   26,
+ /*    60 */    24,   23,   40,   18,   25,   29,   35,   54,   44,   30,
+ /*    70 */    48,   55,   65,
 };
 static const YYCODETYPE yy_lookahead[] = {
- /*     0 */    17,   18,   19,   20,   25,   26,   30,   28,   29,   33,
- /*    10 */    34,   35,    2,   36,   37,   38,   36,   37,   38,   42,
- /*    20 */     1,    2,   42,    0,    1,    2,   21,   22,   23,   25,
- /*    30 */    19,   20,   28,   29,    9,   10,   11,    7,    8,    5,
- /*    40 */     6,   12,    7,    8,   15,   39,   40,    5,    6,   13,
- /*    50 */    14,    1,    1,    4,    1,   24,    1,    5,   31,   27,
- /*    60 */    40,    5,   25,   41,    7,   11,   25,    4,    3,   43,
- /*    70 */    32,   43,    4,
+ /*     0 */    27,   28,   29,   30,   35,   36,   40,   38,   39,   43,
+ /*    10 */    44,   45,    0,   46,   47,   48,   46,   47,   48,   52,
+ /*    20 */    11,   12,   52,   11,   12,   31,   32,   33,   35,   29,
+ /*    30 */    30,   38,   39,   19,   20,   21,   17,   18,   15,   16,
+ /*    40 */    22,   17,   18,   25,   49,   50,   15,   16,   23,   24,
+ /*    50 */    12,   11,   11,   14,   34,   11,   11,   15,   37,   51,
+ /*    60 */    50,   35,   15,   41,   21,   17,   14,   13,   53,   42,
+ /*    70 */    53,   35,   14,
 };
 #define YY_SHIFT_USE_DFLT (-1)
 static const signed char yy_shift_ofst[] = {
- /*     0 */    19,   23,   -1,   -1,   10,   50,   -1,   51,   49,   53,
- /*    10 */    30,   34,   52,   55,   30,   -1,   35,   -1,   25,   -1,
- /*    20 */    30,   -1,   -1,   54,   -1,   -1,   -1,   -1,   57,   -1,
- /*    30 */    -1,   -1,   -1,   -1,   63,   29,   42,   -1,   29,   56,
- /*    40 */    -1,   -1,   -1,   36,   -1,   -1,   -1,   36,   -1,   -1,
- /*    50 */    -1,   -1,   -1,   65,   30,   68,   -1,
+ /*     0 */     9,   12,   -1,   -1,   38,   40,   -1,   41,   39,   44,
+ /*    10 */    19,   23,   42,   45,   19,   -1,   24,   -1,   14,   -1,
+ /*    20 */    19,   -1,   -1,   43,   -1,   -1,   -1,   -1,   48,   -1,
+ /*    30 */    -1,   -1,   -1,   -1,   52,   18,   31,   -1,   18,   47,
+ /*    40 */    -1,   -1,   -1,   25,   -1,   -1,   -1,   25,   -1,   -1,
+ /*    50 */    -1,   -1,   -1,   54,   19,   58,   -1,
 };
-#define YY_REDUCE_USE_DFLT (-25)
+#define YY_REDUCE_USE_DFLT (-35)
 static const signed char yy_reduce_ofst[] = {
- /*     0 */   -17,   11,  -25,  -25,    5,  -25,  -25,  -25,   31,  -25,
- /*    10 */   -21,   32,  -25,  -25,    4,  -25,  -24,   27,    6,  -25,
- /*    20 */    37,  -25,  -25,   20,  -25,   22,  -25,  -25,   38,  -25,
- /*    30 */   -25,  -25,  -25,  -25,  -25,  -23,  -25,  -25,  -20,  -25,
- /*    40 */   -25,  -25,  -25,   26,  -25,  -25,  -25,   28,  -25,  -25,
- /*    50 */   -25,  -25,  -25,  -25,   41,  -25,  -25,
+ /*     0 */   -27,    0,  -35,  -35,   -6,  -35,  -35,  -35,   20,  -35,
+ /*    10 */   -31,   21,  -35,  -35,   -7,  -35,  -34,   22,   -5,  -35,
+ /*    20 */    26,  -35,  -35,   10,  -35,    8,  -35,  -35,   27,  -35,
+ /*    30 */   -35,  -35,  -35,  -35,  -35,  -33,  -35,  -35,  -30,  -35,
+ /*    40 */   -35,  -35,  -35,   15,  -35,  -35,  -35,   17,  -35,  -35,
+ /*    50 */   -35,  -35,  -35,  -35,   36,  -35,  -35,
 };
 static const YYACTIONTYPE yy_default[] = {
  /*     0 */    98,   98,   58,   60,   98,   98,   61,   98,   98,   98,
@@ -276,17 +264,20 @@ void mdbParserTrace(FILE *TraceFILE, char *zTracePrompt){
 /* For tracing shifts, the names of all terminals and nonterminals
 ** are required.  The following table supplies these names */
 static const char *const yyTokenName[] = { 
-  "$",             "SEMI",          "CREATE",        "TABLE",       
-  "LP",            "RP",            "COMMA",         "ID",          
-  "STRING",        "CONSTRAINT",    "DEFAULT",       "NULL",        
-  "MINUS",         "INTEGER",       "FLOAT",         "PLUS",        
-  "error",         "input",         "cmdlist",       "ecmd",        
-  "explain",       "cmdx",          "cmd",           "create_table",
-  "create_table_args",  "nm",            "columnlist",    "conslist_opt",
-  "column",        "columnid",      "type",          "carglist",    
-  "id",            "ids",           "typetoken",     "typename",    
-  "signed",        "plus_num",      "minus_num",     "carg",        
-  "ccons",         "onconf",        "plus_opt",      "number",      
+  "$",             "END_OF_FILE",   "ILLEGAL",       "SPACE",       
+  "UNCLOSED_STRING",  "COMMENT",       "FUNCTION",      "COLUMN",      
+  "AGG_FUNCTION",  "AGG_COLUMN",    "CONST_FUNC",    "SEMI",        
+  "CREATE",        "TABLE",         "LP",            "RP",          
+  "COMMA",         "ID",            "STRING",        "CONSTRAINT",  
+  "DEFAULT",       "NULL",          "MINUS",         "INTEGER",     
+  "FLOAT",         "PLUS",          "error",         "input",       
+  "cmdlist",       "ecmd",          "explain",       "cmdx",        
+  "cmd",           "create_table",  "create_table_args",  "nm",          
+  "columnlist",    "conslist_opt",  "column",        "columnid",    
+  "type",          "carglist",      "id",            "ids",         
+  "typetoken",     "typename",      "signed",        "plus_num",    
+  "minus_num",     "carg",          "ccons",         "onconf",      
+  "plus_opt",      "number",      
 };
 #endif /* NDEBUG */
 
@@ -566,47 +557,47 @@ static const struct {
   YYCODETYPE lhs;         /* Symbol on the left-hand side of the rule */
   unsigned char nrhs;     /* Number of right-hand side symbols in the rule */
 } yyRuleInfo[] = {
-  { 17, 1 },
-  { 18, 2 },
-  { 18, 1 },
-  { 19, 1 },
-  { 19, 3 },
-  { 21, 1 },
-  { 20, 0 },
-  { 22, 2 },
-  { 23, 3 },
-  { 24, 4 },
-  { 26, 3 },
-  { 26, 1 },
-  { 28, 3 },
+  { 27, 1 },
+  { 28, 2 },
+  { 28, 1 },
   { 29, 1 },
-  { 32, 1 },
-  { 33, 1 },
-  { 33, 1 },
-  { 25, 1 },
-  { 25, 1 },
+  { 29, 3 },
+  { 31, 1 },
   { 30, 0 },
-  { 30, 1 },
-  { 34, 1 },
+  { 32, 2 },
+  { 33, 3 },
   { 34, 4 },
-  { 34, 6 },
-  { 35, 1 },
+  { 36, 3 },
   { 36, 1 },
-  { 36, 1 },
-  { 31, 2 },
-  { 31, 0 },
-  { 39, 3 },
+  { 38, 3 },
   { 39, 1 },
-  { 39, 2 },
-  { 40, 2 },
-  { 41, 0 },
-  { 27, 0 },
-  { 37, 2 },
-  { 38, 2 },
-  { 43, 1 },
-  { 43, 1 },
   { 42, 1 },
-  { 42, 0 },
+  { 43, 1 },
+  { 43, 1 },
+  { 35, 1 },
+  { 35, 1 },
+  { 40, 0 },
+  { 40, 1 },
+  { 44, 1 },
+  { 44, 4 },
+  { 44, 6 },
+  { 45, 1 },
+  { 46, 1 },
+  { 46, 1 },
+  { 41, 2 },
+  { 41, 0 },
+  { 49, 3 },
+  { 49, 1 },
+  { 49, 2 },
+  { 50, 2 },
+  { 51, 0 },
+  { 37, 0 },
+  { 47, 2 },
+  { 48, 2 },
+  { 53, 1 },
+  { 53, 1 },
+  { 52, 1 },
+  { 52, 0 },
 };
 
 static void yy_accept(yyParser*);  /* Forward Declaration */
@@ -662,27 +653,27 @@ static void yy_reduce(
       case 18:
       case 37:
       case 38:
-#line 64 "parser.y"
-{yygotominor.yy34=yymsp[0].minor.yy0;}
-#line 669 "parser.cpp"
+#line 55 "parser.y"
+{yygotominor.yy90=yymsp[0].minor.yy0;}
+#line 660 "parser.cpp"
         break;
       case 21:
       case 24:
       case 35:
       case 36:
-#line 81 "parser.y"
-{yygotominor.yy34=yymsp[0].minor.yy34;}
-#line 677 "parser.cpp"
+#line 72 "parser.y"
+{yygotominor.yy90=yymsp[0].minor.yy90;}
+#line 668 "parser.cpp"
         break;
       case 25:
-#line 90 "parser.y"
-{yygotominor.yy20=atoi(yymsp[0].minor.yy34.z);}
-#line 682 "parser.cpp"
+#line 81 "parser.y"
+{yygotominor.yy4=atoi(yymsp[0].minor.yy90.z);}
+#line 673 "parser.cpp"
         break;
       case 26:
-#line 91 "parser.y"
-{yygotominor.yy20=-atoi(yymsp[0].minor.yy34.z);}
-#line 687 "parser.cpp"
+#line 82 "parser.y"
+{yygotominor.yy4=-atoi(yymsp[0].minor.yy90.z);}
+#line 678 "parser.cpp"
         break;
   };
   yygoto = yyRuleInfo[yyruleno].lhs;
@@ -739,10 +730,10 @@ static void yy_syntax_error(
 ){
   mdbParserARG_FETCH;
 #define TOKEN (yyminor.yy0)
-#line 35 "parser.y"
+#line 23 "parser.y"
 
 	printf("syntax error!\n");
-#line 748 "parser.cpp"
+#line 739 "parser.cpp"
   mdbParserARG_STORE; /* Suppress warning about unused %extra_argument variable */
 }
 
