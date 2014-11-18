@@ -1,5 +1,0 @@
-hello,world
-hello
-new hello
-from com
-from com2
