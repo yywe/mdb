@@ -5,6 +5,7 @@
 extern "C" {
 #endif
 
+#define MAXLINESIZE 4096
 
 typedef struct Token{
 	const unsigned char *z;
@@ -17,7 +18,7 @@ typedef struct Parse{
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <parser.h>
+#include "sqlparser/parser.h"
 
 
 #ifdef __cplusplus
