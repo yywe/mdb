@@ -34,6 +34,7 @@ public:
 	tracefile="";
     }
     void TraceInfo(tracelevel level,const char *fmt,...);
+	static void tracePrint(tracelevel level,const char *fmt,...);
 private:
     std::string tracefile;
 };

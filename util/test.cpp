@@ -7,6 +7,7 @@
  */
 
 int main(int argc,char **argv){
+	Tracer::tracePrint(INFO,"helo ,from %s\n","static");
     std::string tf="hello.txt";
     Tracer tc;
     tc.TraceInfo(ERROR,"this is from %s","stdout");

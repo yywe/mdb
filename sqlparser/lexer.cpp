@@ -87,7 +87,12 @@ int Lexer::getNextToken(){
 			tk_len=1;
 			return 0;
 		}
-
+		case ',':
+		{
+			tk_type=TK_COMMA;
+			tk_len=1;
+			return 0;
+		}
 		default:
 		{
 			if(!isIdChar(*substr)){
