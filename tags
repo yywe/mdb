@@ -1,0 +1,604 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.7	//
+ACCEPT	sqlparser/mdb_lemon.c	/^    ACCEPT,$/;"	e	enum:action::e_action	file:
+Action_add	sqlparser/mdb_lemon.c	/^void Action_add(app,type,sp,arg)$/;"	f
+Action_new	sqlparser/mdb_lemon.c	/^struct action *Action_new(){$/;"	f
+Action_sort	sqlparser/mdb_lemon.c	/^struct action *Action_sort(ap)$/;"	f
+B_FALSE	sqlparser/mdb_lemon.c	/^typedef enum {B_FALSE=0, B_TRUE} Boolean;$/;"	e	enum:__anon5	file:
+B_TRUE	sqlparser/mdb_lemon.c	/^typedef enum {B_FALSE=0, B_TRUE} Boolean;$/;"	e	enum:__anon5	file:
+Boolean	sqlparser/mdb_lemon.c	/^typedef enum {B_FALSE=0, B_TRUE} Boolean;$/;"	t	typeref:enum:__anon5	file:
+CC	Makefile	/^CC=g++$/;"	m
+CC_FLAG	Makefile	/^CC_FLAG=-g -Wall -o0$/;"	m
+COMPLETE	sqlparser/mdb_lemon.c	/^    COMPLETE,              \/* The status is used during followset and *\/$/;"	e	enum:config::__anon7	file:
+CONFLICT	sqlparser/mdb_lemon.c	/^    CONFLICT,                \/* Was a reduce, but part of a conflict *\/$/;"	e	enum:action::e_action	file:
+CompressTables	sqlparser/mdb_lemon.c	/^void CompressTables(lemp)$/;"	f
+ConfigPrint	sqlparser/mdb_lemon.c	/^void ConfigPrint(fp,cfp)$/;"	f
+Configcmp	sqlparser/mdb_lemon.c	/^int Configcmp(a,b)$/;"	f
+Configlist_add	sqlparser/mdb_lemon.c	/^struct config *Configlist_add(rp,dot)$/;"	f
+Configlist_addbasis	sqlparser/mdb_lemon.c	/^struct config *Configlist_addbasis(rp,dot)$/;"	f
+Configlist_basis	sqlparser/mdb_lemon.c	/^struct config *Configlist_basis(){$/;"	f
+Configlist_closure	sqlparser/mdb_lemon.c	/^void Configlist_closure(lemp)$/;"	f
+Configlist_eat	sqlparser/mdb_lemon.c	/^void Configlist_eat(cfp)$/;"	f
+Configlist_init	sqlparser/mdb_lemon.c	/^void Configlist_init(){$/;"	f
+Configlist_reset	sqlparser/mdb_lemon.c	/^void Configlist_reset(){$/;"	f
+Configlist_return	sqlparser/mdb_lemon.c	/^struct config *Configlist_return(){$/;"	f
+Configlist_sort	sqlparser/mdb_lemon.c	/^void Configlist_sort(){$/;"	f
+Configlist_sortbasis	sqlparser/mdb_lemon.c	/^void Configlist_sortbasis(){$/;"	f
+Configtable_clear	sqlparser/mdb_lemon.c	/^void Configtable_clear(f)$/;"	f
+Configtable_find	sqlparser/mdb_lemon.c	/^struct config *Configtable_find(key)$/;"	f
+Configtable_init	sqlparser/mdb_lemon.c	/^void Configtable_init(){$/;"	f
+Configtable_insert	sqlparser/mdb_lemon.c	/^int Configtable_insert(data)$/;"	f
+ERRMSGSIZE	sqlparser/mdb_lemon.c	1266;"	d	file:
+ERROR	sqlparser/mdb_lemon.c	/^    ERROR,$/;"	e	enum:action::e_action	file:
+ERROR	util/trace.h	/^    ERROR$/;"	e	enum:tracelevel
+ErrorMsg	sqlparser/mdb_lemon.c	/^void ErrorMsg(const char *filename, int lineno, const char *format, ...){$/;"	f
+Executor	executor/exec.h	/^		Executor(){};$/;"	f	class:Executor
+Executor	executor/exec.h	/^		Executor(string str):querystr(str){};$/;"	f	class:Executor
+Executor	executor/exec.h	/^class Executor{$/;"	c
+FindActions	sqlparser/mdb_lemon.c	/^void FindActions(lemp)$/;"	f
+FindFirstSets	sqlparser/mdb_lemon.c	/^void FindFirstSets(lemp)$/;"	f
+FindFollowSets	sqlparser/mdb_lemon.c	/^void FindFollowSets(lemp)$/;"	f
+FindLinks	sqlparser/mdb_lemon.c	/^void FindLinks(lemp)$/;"	f
+FindRulePrecedences	sqlparser/mdb_lemon.c	/^void FindRulePrecedences(xp)$/;"	f
+FindStates	sqlparser/mdb_lemon.c	/^void FindStates(lemp)$/;"	f
+INCOMPLETE	sqlparser/mdb_lemon.c	/^    INCOMPLETE             \/*    shift computations *\/$/;"	e	enum:config::__anon7	file:
+INFO	util/trace.h	/^    INFO=1,$/;"	e	enum:tracelevel
+INITIALIZE	sqlparser/mdb_lemon.c	/^    INITIALIZE,$/;"	e	enum:pstate::e_state	file:
+INTERFACE	sqlparser/lempar.c	22;"	d	file:
+INTERFACE	sqlparser/parser.cpp	36;"	d	file:
+IN_RHS	sqlparser/mdb_lemon.c	/^    IN_RHS,$/;"	e	enum:pstate::e_state	file:
+ISOPT	sqlparser/mdb_lemon.c	1603;"	d	file:
+IdChar	sqlparser/lexer.cpp	/^const char IdChar[]=$/;"	v
+LEFT	sqlparser/mdb_lemon.c	/^    LEFT,$/;"	e	enum:symbol::e_assoc	file:
+LHS_ALIAS_1	sqlparser/mdb_lemon.c	/^    LHS_ALIAS_1,$/;"	e	enum:pstate::e_state	file:
+LHS_ALIAS_2	sqlparser/mdb_lemon.c	/^    LHS_ALIAS_2,$/;"	e	enum:pstate::e_state	file:
+LHS_ALIAS_3	sqlparser/mdb_lemon.c	/^    LHS_ALIAS_3,$/;"	e	enum:pstate::e_state	file:
+LIB	Makefile	/^LIB=-lpthread$/;"	m
+LINESIZE	sqlparser/mdb_lemon.c	2855;"	d	file:
+LINEWIDTH	sqlparser/mdb_lemon.c	1267;"	d	file:
+LISTSIZE	sqlparser/mdb_lemon.c	1572;"	d	file:
+Lexer	sqlparser/lexer.h	/^		Lexer(const char *sql):sqlstr(sql),tk_offset(0),tk_type(-1),tk_len(0){};$/;"	f	class:Lexer
+Lexer	sqlparser/lexer.h	/^class Lexer{$/;"	c
+MAXLINESIZE	back/mdbheader.h	8;"	d
+MAXLINESIZE	mdbtype.h	8;"	d
+MAXRHS	sqlparser/mdb_lemon.c	31;"	d	file:
+MAXRHS	sqlparser/mdb_lemon.c	33;"	d	file:
+MemoryCheck	sqlparser/mdb_lemon.c	277;"	d	file:
+NEXT	sqlparser/mdb_lemon.c	1504;"	d	file:
+NONE	sqlparser/mdb_lemon.c	/^    NONE,$/;"	e	enum:symbol::e_assoc	file:
+NONTERMINAL	sqlparser/mdb_lemon.c	/^    NONTERMINAL$/;"	e	enum:symbol::__anon6	file:
+NOT_USED	sqlparser/mdb_lemon.c	/^    NOT_USED                 \/* Deleted by compression *\/$/;"	e	enum:action::e_action	file:
+NO_OFFSET	sqlparser/mdb_lemon.c	221;"	d	file:
+OBJS	Makefile	/^OBJS= main.o sqlparser\/parser.o util\/trace.o  sqlparser\/lexer.o  executor\/exec.o sqlparser\/parsefunc.o$/;"	m
+OPT_DBL	sqlparser/mdb_lemon.c	/^  enum { OPT_FLAG=1,  OPT_INT,  OPT_DBL,  OPT_STR,$/;"	e	enum:s_options::__anon4	file:
+OPT_FDBL	sqlparser/mdb_lemon.c	/^         OPT_FFLAG, OPT_FINT, OPT_FDBL, OPT_FSTR} type;$/;"	e	enum:s_options::__anon4	file:
+OPT_FFLAG	sqlparser/mdb_lemon.c	/^         OPT_FFLAG, OPT_FINT, OPT_FDBL, OPT_FSTR} type;$/;"	e	enum:s_options::__anon4	file:
+OPT_FINT	sqlparser/mdb_lemon.c	/^         OPT_FFLAG, OPT_FINT, OPT_FDBL, OPT_FSTR} type;$/;"	e	enum:s_options::__anon4	file:
+OPT_FLAG	sqlparser/mdb_lemon.c	/^  enum { OPT_FLAG=1,  OPT_INT,  OPT_DBL,  OPT_STR,$/;"	e	enum:s_options::__anon4	file:
+OPT_FSTR	sqlparser/mdb_lemon.c	/^         OPT_FFLAG, OPT_FINT, OPT_FDBL, OPT_FSTR} type;$/;"	e	enum:s_options::__anon4	file:
+OPT_INT	sqlparser/mdb_lemon.c	/^  enum { OPT_FLAG=1,  OPT_INT,  OPT_DBL,  OPT_STR,$/;"	e	enum:s_options::__anon4	file:
+OPT_STR	sqlparser/mdb_lemon.c	/^  enum { OPT_FLAG=1,  OPT_INT,  OPT_DBL,  OPT_STR,$/;"	e	enum:s_options::__anon4	file:
+OptArg	sqlparser/mdb_lemon.c	/^char *OptArg(n)$/;"	f
+OptErr	sqlparser/mdb_lemon.c	/^void OptErr(n)$/;"	f
+OptInit	sqlparser/mdb_lemon.c	/^int OptInit(a,o,err)$/;"	f
+OptNArgs	sqlparser/mdb_lemon.c	/^int OptNArgs(){$/;"	f
+OptPrint	sqlparser/mdb_lemon.c	/^void OptPrint(){$/;"	f
+PRECEDENCE_MARK_1	sqlparser/mdb_lemon.c	/^    PRECEDENCE_MARK_1,$/;"	e	enum:pstate::e_state	file:
+PRECEDENCE_MARK_2	sqlparser/mdb_lemon.c	/^    PRECEDENCE_MARK_2,$/;"	e	enum:pstate::e_state	file:
+PREFIXLIMIT	sqlparser/mdb_lemon.c	1268;"	d	file:
+PRIVATE	sqlparser/mdb_lemon.c	28;"	d	file:
+Parse	mdbtype.h	/^typedef struct Parse{$/;"	s
+Parse	mdbtype.h	/^}Parse;$/;"	t	typeref:struct:Parse
+Parse	sqlparser/lempar.c	/^void Parse($/;"	f
+Parse	sqlparser/mdb_lemon.c	/^void Parse(gp)$/;"	f
+ParseAlloc	sqlparser/lempar.c	/^void *ParseAlloc(void *(*mallocProc)(size_t)){$/;"	f
+ParseFree	sqlparser/lempar.c	/^void ParseFree($/;"	f
+ParseTokenName	sqlparser/lempar.c	/^const char *ParseTokenName(int tokenType){$/;"	f
+ParseTrace	sqlparser/lempar.c	/^void ParseTrace(FILE *TraceFILE, char *zTracePrompt){$/;"	f
+PlinkPrint	sqlparser/mdb_lemon.c	/^PRIVATE void PlinkPrint(out,plp,tag)$/;"	f
+Plink_add	sqlparser/mdb_lemon.c	/^void Plink_add(plpp,cfp)$/;"	f
+Plink_copy	sqlparser/mdb_lemon.c	/^void Plink_copy(to,from)$/;"	f
+Plink_delete	sqlparser/mdb_lemon.c	/^void Plink_delete(plp)$/;"	f
+Plink_new	sqlparser/mdb_lemon.c	/^struct plink *Plink_new(){$/;"	f
+PrintAction	sqlparser/mdb_lemon.c	/^int PrintAction(struct action *ap, FILE *fp, int indent){$/;"	f
+RD_RESOLVED	sqlparser/mdb_lemon.c	/^    RD_RESOLVED,             \/* Was reduce.  Precedence resolved conflict *\/$/;"	e	enum:action::e_action	file:
+REDUCE	sqlparser/mdb_lemon.c	/^    REDUCE,$/;"	e	enum:action::e_action	file:
+RESYNC_AFTER_DECL_ERROR	sqlparser/mdb_lemon.c	/^    RESYNC_AFTER_DECL_ERROR,$/;"	e	enum:pstate::e_state	file:
+RESYNC_AFTER_RULE_ERROR	sqlparser/mdb_lemon.c	/^    RESYNC_AFTER_RULE_ERROR,$/;"	e	enum:pstate::e_state	file:
+RHS_ALIAS_1	sqlparser/mdb_lemon.c	/^    RHS_ALIAS_1,$/;"	e	enum:pstate::e_state	file:
+RHS_ALIAS_2	sqlparser/mdb_lemon.c	/^    RHS_ALIAS_2,$/;"	e	enum:pstate::e_state	file:
+RIGHT	sqlparser/mdb_lemon.c	/^    RIGHT,$/;"	e	enum:symbol::e_assoc	file:
+ReportHeader	sqlparser/mdb_lemon.c	/^void ReportHeader(lemp)$/;"	f
+ReportOutput	sqlparser/mdb_lemon.c	/^void ReportOutput(lemp)$/;"	f
+ReportTable	sqlparser/mdb_lemon.c	/^void ReportTable(lemp, mhflag)$/;"	f
+Reprint	sqlparser/mdb_lemon.c	/^void Reprint(lemp)$/;"	f
+SHIFT	sqlparser/mdb_lemon.c	/^    SHIFT,$/;"	e	enum:action::e_action	file:
+SH_RESOLVED	sqlparser/mdb_lemon.c	/^    SH_RESOLVED,             \/* Was a shift.  Precedence resolved conflict *\/$/;"	e	enum:action::e_action	file:
+SetAdd	sqlparser/mdb_lemon.c	/^int SetAdd(s,e)$/;"	f
+SetFind	sqlparser/mdb_lemon.c	112;"	d	file:
+SetFree	sqlparser/mdb_lemon.c	/^void SetFree(s)$/;"	f
+SetNew	sqlparser/mdb_lemon.c	/^char *SetNew(){$/;"	f
+SetPrint	sqlparser/mdb_lemon.c	/^PRIVATE void SetPrint(out,set,lemp)$/;"	f
+SetSize	sqlparser/mdb_lemon.c	/^void SetSize(n)$/;"	f
+SetUnion	sqlparser/mdb_lemon.c	/^int SetUnion(s1,s2)$/;"	f
+State_arrayof	sqlparser/mdb_lemon.c	/^struct state **State_arrayof()$/;"	f
+State_find	sqlparser/mdb_lemon.c	/^struct state *State_find(key)$/;"	f
+State_init	sqlparser/mdb_lemon.c	/^void State_init(){$/;"	f
+State_insert	sqlparser/mdb_lemon.c	/^int State_insert(data,key)$/;"	f
+State_new	sqlparser/mdb_lemon.c	/^struct state *State_new()$/;"	f
+Strsafe	sqlparser/mdb_lemon.c	/^char *Strsafe(y)$/;"	f
+Strsafe_find	sqlparser/mdb_lemon.c	/^char *Strsafe_find(key)$/;"	f
+Strsafe_init	sqlparser/mdb_lemon.c	/^void Strsafe_init(){$/;"	f
+Strsafe_insert	sqlparser/mdb_lemon.c	/^int Strsafe_insert(data)$/;"	f
+Symbol_Nth	sqlparser/mdb_lemon.c	/^struct symbol *Symbol_Nth(n)$/;"	f
+Symbol_arrayof	sqlparser/mdb_lemon.c	/^struct symbol **Symbol_arrayof()$/;"	f
+Symbol_count	sqlparser/mdb_lemon.c	/^int Symbol_count()$/;"	f
+Symbol_find	sqlparser/mdb_lemon.c	/^struct symbol *Symbol_find(key)$/;"	f
+Symbol_init	sqlparser/mdb_lemon.c	/^void Symbol_init(){$/;"	f
+Symbol_insert	sqlparser/mdb_lemon.c	/^int Symbol_insert(data,key)$/;"	f
+Symbol_new	sqlparser/mdb_lemon.c	/^struct symbol *Symbol_new(x)$/;"	f
+Symbolcmpp	sqlparser/mdb_lemon.c	/^int Symbolcmpp(struct symbol **a, struct symbol **b){$/;"	f
+TERMINAL	sqlparser/mdb_lemon.c	/^    TERMINAL,$/;"	e	enum:symbol::__anon6	file:
+TK_AGG_COLUMN	sqlparser/parser.h	9;"	d
+TK_AGG_FUNCTION	sqlparser/parser.h	8;"	d
+TK_COLUMN	sqlparser/parser.h	7;"	d
+TK_COMMA	sqlparser/parser.h	16;"	d
+TK_COMMENT	sqlparser/parser.h	5;"	d
+TK_CONSTRAINT	sqlparser/parser.h	19;"	d
+TK_CONST_FUNC	sqlparser/parser.h	10;"	d
+TK_CREATE	sqlparser/parser.h	12;"	d
+TK_DEFAULT	sqlparser/parser.h	20;"	d
+TK_END_OF_FILE	sqlparser/parser.h	1;"	d
+TK_FLOAT	sqlparser/parser.h	24;"	d
+TK_FUNCTION	sqlparser/parser.h	6;"	d
+TK_ID	sqlparser/parser.h	17;"	d
+TK_ILLEGAL	sqlparser/parser.h	2;"	d
+TK_INTEGER	sqlparser/parser.h	23;"	d
+TK_LP	sqlparser/parser.h	14;"	d
+TK_MINUS	sqlparser/parser.h	22;"	d
+TK_NULL	sqlparser/parser.h	21;"	d
+TK_PLUS	sqlparser/parser.h	25;"	d
+TK_RP	sqlparser/parser.h	15;"	d
+TK_SEMI	sqlparser/parser.h	11;"	d
+TK_SPACE	sqlparser/parser.h	3;"	d
+TK_STRING	sqlparser/parser.h	18;"	d
+TK_TABLE	sqlparser/parser.h	13;"	d
+TK_UNCLOSED_STRING	sqlparser/parser.h	4;"	d
+TOKEN	sqlparser/lempar.c	542;"	d	file:
+TOKEN	sqlparser/parser.cpp	741;"	d	file:
+TRACEBUF	util/trace.h	25;"	d
+Token	mdbtype.h	/^typedef struct Token{$/;"	s
+Token	mdbtype.h	/^}Token;$/;"	t	typeref:struct:Token
+TraceInfo	util/trace.cpp	/^void Tracer::TraceInfo(tracelevel level,const char *fmt,...){$/;"	f	class:Tracer
+Tracer	util/trace.h	/^    Tracer(){$/;"	f	class:Tracer
+Tracer	util/trace.h	/^    Tracer(std::string tf):tracefile(tf){};$/;"	f	class:Tracer
+Tracer	util/trace.h	/^class Tracer{$/;"	c
+UNK	sqlparser/mdb_lemon.c	/^    UNK$/;"	e	enum:symbol::e_assoc	file:
+WAITING_FOR_ARROW	sqlparser/mdb_lemon.c	/^    WAITING_FOR_ARROW,$/;"	e	enum:pstate::e_state	file:
+WAITING_FOR_DATATYPE_SYMBOL	sqlparser/mdb_lemon.c	/^    WAITING_FOR_DATATYPE_SYMBOL,$/;"	e	enum:pstate::e_state	file:
+WAITING_FOR_DECL_ARG	sqlparser/mdb_lemon.c	/^    WAITING_FOR_DECL_ARG,$/;"	e	enum:pstate::e_state	file:
+WAITING_FOR_DECL_KEYWORD	sqlparser/mdb_lemon.c	/^    WAITING_FOR_DECL_KEYWORD,$/;"	e	enum:pstate::e_state	file:
+WAITING_FOR_DECL_OR_RULE	sqlparser/mdb_lemon.c	/^    WAITING_FOR_DECL_OR_RULE,$/;"	e	enum:pstate::e_state	file:
+WAITING_FOR_DESTRUCTOR_SYMBOL	sqlparser/mdb_lemon.c	/^    WAITING_FOR_DESTRUCTOR_SYMBOL,$/;"	e	enum:pstate::e_state	file:
+WAITING_FOR_FALLBACK_ID	sqlparser/mdb_lemon.c	/^    WAITING_FOR_FALLBACK_ID$/;"	e	enum:pstate::e_state	file:
+WAITING_FOR_PRECEDENCE_SYMBOL	sqlparser/mdb_lemon.c	/^    WAITING_FOR_PRECEDENCE_SYMBOL,$/;"	e	enum:pstate::e_state	file:
+WARNING	util/trace.h	/^    WARNING,$/;"	e	enum:tracelevel
+YYACTIONTYPE	sqlparser/parser.cpp	73;"	d	file:
+YYCODETYPE	sqlparser/parser.cpp	71;"	d	file:
+YYERRORSYMBOL	sqlparser/parser.cpp	88;"	d	file:
+YYERRSYMDT	sqlparser/parser.cpp	89;"	d	file:
+YYMINORTYPE	sqlparser/parser.cpp	/^} YYMINORTYPE;$/;"	t	typeref:union:__anon1	file:
+YYNOCODE	sqlparser/parser.cpp	72;"	d	file:
+YYNRULE	sqlparser/parser.cpp	87;"	d	file:
+YYNSTATE	sqlparser/parser.cpp	86;"	d	file:
+YYSTACKDEPTH	sqlparser/parser.cpp	81;"	d	file:
+YY_ACCEPT_ACTION	sqlparser/lempar.c	59;"	d	file:
+YY_ACCEPT_ACTION	sqlparser/parser.cpp	91;"	d	file:
+YY_ERROR_ACTION	sqlparser/lempar.c	60;"	d	file:
+YY_ERROR_ACTION	sqlparser/parser.cpp	92;"	d	file:
+YY_NO_ACTION	sqlparser/lempar.c	58;"	d	file:
+YY_NO_ACTION	sqlparser/parser.cpp	90;"	d	file:
+YY_REDUCE_USE_DFLT	sqlparser/parser.cpp	170;"	d	file:
+YY_SHIFT_USE_DFLT	sqlparser/parser.cpp	161;"	d	file:
+YY_SZ_ACTTAB	sqlparser/lempar.c	110;"	d	file:
+YY_SZ_ACTTAB	sqlparser/parser.cpp	187;"	d	file:
+_HEADER_H_	back/mdbheader.h	2;"	d
+_LEXER_H_	sqlparser/lexer.h	2;"	d
+_MDBPROTO_H_	mdbproto.h	2;"	d
+_MDBTYPE_H_	mdbtype.h	2;"	d
+_TRACE_H_	util/trace.h	2;"	d
+__WIN32__	sqlparser/mdb_lemon.c	23;"	d	file:
+aAction	sqlparser/mdb_lemon.c	/^  } *aAction,                  \/* The yy_action[] table under construction *\/$/;"	m	struct:acttab	typeref:struct:acttab::__anon9	file:
+aLookahead	sqlparser/mdb_lemon.c	/^    *aLookahead;               \/* A single new transaction set *\/$/;"	m	struct:acttab	typeref:struct:acttab::__anon9	file:
+accept	sqlparser/mdb_lemon.c	/^  char *accept;            \/* Code to execute when the parser excepts *\/$/;"	m	struct:lemon	file:
+acceptln	sqlparser/mdb_lemon.c	/^  int  acceptln;           \/* Line number for the start of accept code *\/$/;"	m	struct:lemon	file:
+action	sqlparser/mdb_lemon.c	/^    int action;                \/* Action to take on the given lookahead *\/$/;"	m	struct:acttab::__anon9	file:
+action	sqlparser/mdb_lemon.c	/^struct action {$/;"	s	file:
+actioncmp	sqlparser/mdb_lemon.c	/^static int actioncmp(ap1,ap2)$/;"	f	file:
+acttab	sqlparser/mdb_lemon.c	/^struct acttab {$/;"	s	file:
+acttab	sqlparser/mdb_lemon.c	/^typedef struct acttab acttab;$/;"	t	typeref:struct:acttab	file:
+acttab_action	sqlparser/mdb_lemon.c	/^void acttab_action(acttab *p, int lookahead, int action){$/;"	f
+acttab_alloc	sqlparser/mdb_lemon.c	/^acttab *acttab_alloc(void){$/;"	f
+acttab_free	sqlparser/mdb_lemon.c	/^void acttab_free(acttab *p){$/;"	f
+acttab_insert	sqlparser/mdb_lemon.c	/^int acttab_insert(acttab *p){$/;"	f
+acttab_size	sqlparser/mdb_lemon.c	423;"	d	file:
+acttab_yyaction	sqlparser/mdb_lemon.c	426;"	d	file:
+acttab_yylookahead	sqlparser/mdb_lemon.c	429;"	d	file:
+alias	sqlparser/mdb_lemon.c	/^  char *alias[MAXRHS];       \/* Aliases for each RHS symbol (or NULL) *\/$/;"	m	struct:pstate	file:
+ap	sqlparser/mdb_lemon.c	/^  struct action *ap;       \/* Array of actions for this state *\/$/;"	m	struct:state	typeref:struct:state::action	file:
+append_str	sqlparser/mdb_lemon.c	/^PRIVATE char *append_str(char *zText, int n, int p1, int p2){$/;"	f
+arg	sqlparser/mdb_lemon.c	/^  char *arg;               \/* Declaration of the 3th argument to parser *\/$/;"	m	struct:lemon	file:
+arg	sqlparser/mdb_lemon.c	/^  char *arg;$/;"	m	struct:s_options	file:
+argindex	sqlparser/mdb_lemon.c	/^static int argindex(n)$/;"	f	file:
+argv	sqlparser/mdb_lemon.c	/^static char **argv;$/;"	v	file:
+argv0	sqlparser/mdb_lemon.c	/^  char *argv0;             \/* Name of the program *\/$/;"	m	struct:lemon	file:
+assert	sqlparser/mdb_lemon.c	46;"	d	file:
+assert	sqlparser/mdb_lemon.c	48;"	d	file:
+assoc	sqlparser/mdb_lemon.c	/^  } assoc;                 \/* Associativity if predecence is defined *\/$/;"	m	struct:symbol	typeref:enum:symbol::e_assoc	file:
+axset	sqlparser/mdb_lemon.c	/^struct axset {$/;"	s	file:
+axset_compare	sqlparser/mdb_lemon.c	/^static int axset_compare(const void *a, const void *b){$/;"	f	file:
+azDefine	sqlparser/mdb_lemon.c	/^static char **azDefine = 0;  \/* Name of the -D macros *\/$/;"	v	file:
+basis	sqlparser/mdb_lemon.c	/^static struct config *basis = 0;         \/* Top of list of basis configs *\/$/;"	v	typeref:struct:config	file:
+basisend	sqlparser/mdb_lemon.c	/^static struct config **basisend = 0;     \/* End of list of basis configs *\/$/;"	v	typeref:struct:config	file:
+basisflag	sqlparser/mdb_lemon.c	/^  int basisflag;           \/* Print only basis configurations *\/$/;"	m	struct:lemon	file:
+bp	sqlparser/mdb_lemon.c	/^  struct config *bp;       \/* The basis configurations for this state *\/$/;"	m	struct:state	typeref:struct:state::config	file:
+bp	sqlparser/mdb_lemon.c	/^  struct config *bp;       \/* The next basis configuration *\/$/;"	m	struct:config	typeref:struct:config::config	file:
+bplp	sqlparser/mdb_lemon.c	/^  struct plink *bplp;      \/* Follow-set backwards propagation links *\/$/;"	m	struct:config	typeref:struct:config::plink	file:
+buildshifts	sqlparser/mdb_lemon.c	/^PRIVATE void buildshifts(lemp,stp)$/;"	f
+canReduce	sqlparser/mdb_lemon.c	/^  Boolean canReduce;       \/* True if this rule is ever reduced *\/$/;"	m	struct:rule	file:
+carg	sqlparser/parser.y	/^carg ::=CONSTRAINT nm ccons.$/;"	l
+carg	sqlparser/parser.y	/^carg ::=DEFAULT id(X).$/;"	l
+carg	sqlparser/parser.y	/^carg ::=ccons.$/;"	l
+carglist	sqlparser/parser.y	/^carglist ::=.$/;"	l
+carglist	sqlparser/parser.y	/^carglist ::=carglist carg.$/;"	l
+ccons	sqlparser/parser.y	/^ccons ::=NULL onconf.$/;"	l
+cfp	sqlparser/mdb_lemon.c	/^  struct config *cfp;      \/* All configurations in this set *\/$/;"	m	struct:state	typeref:struct:state::config	file:
+cfp	sqlparser/mdb_lemon.c	/^  struct config *cfp;      \/* The configuration to which linked *\/$/;"	m	struct:plink	typeref:struct:plink::config	file:
+cmd	sqlparser/parser.y	/^cmd ::=create_table create_table_args.$/;"	l
+cmdlist	sqlparser/parser.y	/^cmdlist ::= cmdlist ecmd.$/;"	l
+cmdlist	sqlparser/parser.y	/^cmdlist ::= ecmd.$/;"	l
+cmdx	sqlparser/parser.y	/^cmdx ::= cmd.$/;"	l
+code	sqlparser/mdb_lemon.c	/^  char *code;              \/* The code executed when this rule is reduced *\/$/;"	m	struct:rule	file:
+collide	sqlparser/mdb_lemon.c	/^  struct action *collide;  \/* Next action with the same hash *\/$/;"	m	struct:action	typeref:struct:action::action	file:
+columnlist	sqlparser/parser.y	/^columnlist ::=column.$/;"	l
+columnlist	sqlparser/parser.y	/^columnlist ::=columnlist COMMA column.$/;"	l
+compute_action	sqlparser/mdb_lemon.c	/^PRIVATE int compute_action(lemp,ap)$/;"	f
+conf_name	main.cpp	/^std::string conf_name="conf.ini";$/;"	v
+config	sqlparser/mdb_lemon.c	/^struct config {$/;"	s	file:
+confighash	sqlparser/mdb_lemon.c	/^PRIVATE int confighash(a)$/;"	f
+count	sqlparser/mdb_lemon.c	/^  int count;              \/* Number of currently slots filled *\/$/;"	m	struct:s_x1	file:
+count	sqlparser/mdb_lemon.c	/^  int count;              \/* Number of currently slots filled *\/$/;"	m	struct:s_x2	file:
+count	sqlparser/mdb_lemon.c	/^  int count;              \/* Number of currently slots filled *\/$/;"	m	struct:s_x3	file:
+count	sqlparser/mdb_lemon.c	/^  int count;              \/* Number of currently slots filled *\/$/;"	m	struct:s_x4	file:
+create_table	sqlparser/parser.y	/^create_table ::=CREATE(X) TABLE nm(Y).$/;"	l
+create_table_args	sqlparser/parser.y	/^create_table_args ::=LP columnlist conslist_opt(X) RP(Y).$/;"	l
+current	sqlparser/mdb_lemon.c	/^static struct config *current = 0;       \/* Top of list of configurations *\/$/;"	v	typeref:struct:config	file:
+currentend	sqlparser/mdb_lemon.c	/^static struct config **currentend = 0;   \/* Last on list of configs *\/$/;"	v	typeref:struct:config	file:
+cwd	main.cpp	/^std::string cwd="";$/;"	v
+data	sqlparser/mdb_lemon.c	/^  char *data;                  \/* The data *\/$/;"	m	struct:s_x1node	file:
+data	sqlparser/mdb_lemon.c	/^  struct config *data;                  \/* The data *\/$/;"	m	struct:s_x4node	typeref:struct:s_x4node::config	file:
+data	sqlparser/mdb_lemon.c	/^  struct state *data;                  \/* The data *\/$/;"	m	struct:s_x3node	typeref:struct:s_x3node::state	file:
+data	sqlparser/mdb_lemon.c	/^  struct symbol *data;                  \/* The data *\/$/;"	m	struct:s_x2node	typeref:struct:s_x2node::symbol	file:
+datatype	sqlparser/mdb_lemon.c	/^  char *datatype;          \/* The data type of information held by this$/;"	m	struct:symbol	file:
+dbname	main.cpp	/^std::string dbname="data";$/;"	v
+declargslot	sqlparser/mdb_lemon.c	/^  char **declargslot;        \/* Where the declaration argument should be put *\/$/;"	m	struct:pstate	file:
+declassoc	sqlparser/mdb_lemon.c	/^  enum e_assoc declassoc;    \/* Assign this association to decl arguments *\/$/;"	m	struct:pstate	typeref:enum:pstate::e_assoc	file:
+declkeyword	sqlparser/mdb_lemon.c	/^  char *declkeyword;         \/* Keyword of a declaration *\/$/;"	m	struct:pstate	file:
+decllnslot	sqlparser/mdb_lemon.c	/^  int *decllnslot;           \/* Where the declaration linenumber is put *\/$/;"	m	struct:pstate	file:
+deleteconfig	sqlparser/mdb_lemon.c	/^PRIVATE void deleteconfig(old)$/;"	f
+destructor	sqlparser/mdb_lemon.c	/^  char *destructor;        \/* Code which executes whenever this symbol is$/;"	m	struct:symbol	file:
+destructorln	sqlparser/mdb_lemon.c	/^  int destructorln;        \/* Line number of destructor code *\/$/;"	m	struct:symbol	file:
+dot	sqlparser/mdb_lemon.c	/^  int dot;                 \/* The parse point *\/$/;"	m	struct:config	file:
+dtnum	sqlparser/mdb_lemon.c	/^  int dtnum;               \/* The data type number.  In the parser, the value$/;"	m	struct:symbol	file:
+dyn	mdbtype.h	/^    unsigned dyn:1;$/;"	m	struct:Token
+e_action	sqlparser/mdb_lemon.c	/^  enum e_action {$/;"	g	struct:action	file:
+e_assoc	sqlparser/mdb_lemon.c	/^  enum e_assoc {$/;"	g	struct:symbol	file:
+e_state	sqlparser/mdb_lemon.c	/^  enum e_state {$/;"	g	struct:pstate	file:
+ecmd	sqlparser/parser.y	/^ecmd ::= SEMI.$/;"	l
+ecmd	sqlparser/parser.y	/^ecmd ::= explain cmdx SEMI.$/;"	l
+emit_code	sqlparser/mdb_lemon.c	/^PRIVATE void emit_code(out,rp,lemp,lineno)$/;"	f
+emit_destructor_code	sqlparser/mdb_lemon.c	/^void emit_destructor_code(out,sp,lemp,lineno)$/;"	f
+emsg	sqlparser/mdb_lemon.c	/^static char emsg[] = "Command line syntax error: ";$/;"	v	file:
+errline	sqlparser/mdb_lemon.c	/^static void errline(n,k,err)$/;"	f	file:
+error	sqlparser/mdb_lemon.c	/^  char *error;             \/* Code to execute when an error is seen *\/$/;"	m	struct:lemon	file:
+errorcnt	sqlparser/mdb_lemon.c	/^  int errorcnt;            \/* Number of errors *\/$/;"	m	struct:lemon	file:
+errorcnt	sqlparser/mdb_lemon.c	/^  int errorcnt;         \/* Number of errors so far *\/$/;"	m	struct:pstate	file:
+errorln	sqlparser/mdb_lemon.c	/^  int  errorln;            \/* Line number for start of error code *\/$/;"	m	struct:lemon	file:
+errstream	sqlparser/mdb_lemon.c	/^static FILE *errstream;$/;"	v	file:
+errsym	sqlparser/mdb_lemon.c	/^  struct symbol *errsym;   \/* The error symbol *\/$/;"	m	struct:lemon	typeref:struct:lemon::symbol	file:
+execute	executor/exec.cpp	/^void Executor::execute(){$/;"	f	class:Executor
+explain	mdbtype.h	/^	int explain;$/;"	m	struct:Parse
+explain	sqlparser/parser.y	/^explain ::= . {mdbBeginParse(pParse,0);}$/;"	l
+extracode	sqlparser/mdb_lemon.c	/^  char *extracode;         \/* Code appended to the generated file *\/$/;"	m	struct:lemon	file:
+extracodeln	sqlparser/mdb_lemon.c	/^  int  extracodeln;        \/* Line number for the start of the extra code *\/$/;"	m	struct:lemon	file:
+failure	sqlparser/mdb_lemon.c	/^  char *failure;           \/* Code to execute on parser failure *\/$/;"	m	struct:lemon	file:
+failureln	sqlparser/mdb_lemon.c	/^  int  failureln;          \/* Line number for start of failure code *\/$/;"	m	struct:lemon	file:
+fallback	sqlparser/mdb_lemon.c	/^  struct symbol *fallback;   \/* The fallback token *\/$/;"	m	struct:pstate	typeref:struct:pstate::symbol	file:
+fallback	sqlparser/mdb_lemon.c	/^  struct symbol *fallback; \/* fallback token in case this token doesn't parse *\/$/;"	m	struct:symbol	typeref:struct:symbol::symbol	file:
+file_makename	sqlparser/mdb_lemon.c	/^PRIVATE char *file_makename(lemp,suffix)$/;"	f
+file_open	sqlparser/mdb_lemon.c	/^PRIVATE FILE *file_open(lemp,suffix,mode)$/;"	f
+filename	sqlparser/mdb_lemon.c	/^  char *filename;          \/* Name of the input file *\/$/;"	m	struct:lemon	file:
+filename	sqlparser/mdb_lemon.c	/^  char *filename;       \/* Name of the input file *\/$/;"	m	struct:pstate	file:
+findbreak	sqlparser/mdb_lemon.c	/^static int findbreak(msg,min,max)$/;"	f	file:
+firstrule	sqlparser/mdb_lemon.c	/^  struct rule *firstrule;    \/* Pointer to first rule in the grammar *\/$/;"	m	struct:pstate	typeref:struct:pstate::rule	file:
+firstset	sqlparser/mdb_lemon.c	/^  char *firstset;          \/* First-set for all rules of this symbol *\/$/;"	m	struct:symbol	file:
+fplp	sqlparser/mdb_lemon.c	/^  struct plink *fplp;      \/* Follow-set forward propagation links *\/$/;"	m	struct:config	typeref:struct:config::plink	file:
+freelist	sqlparser/mdb_lemon.c	/^static struct config *freelist = 0;      \/* List of free configurations *\/$/;"	v	typeref:struct:config	file:
+from	sqlparser/mdb_lemon.c	/^  struct s_x1node **from;  \/* Previous link *\/$/;"	m	struct:s_x1node	typeref:struct:s_x1node::s_x1node	file:
+from	sqlparser/mdb_lemon.c	/^  struct s_x2node **from;  \/* Previous link *\/$/;"	m	struct:s_x2node	typeref:struct:s_x2node::s_x2node	file:
+from	sqlparser/mdb_lemon.c	/^  struct s_x3node **from;  \/* Previous link *\/$/;"	m	struct:s_x3node	typeref:struct:s_x3node::s_x3node	file:
+from	sqlparser/mdb_lemon.c	/^  struct s_x4node **from;  \/* Previous link *\/$/;"	m	struct:s_x4node	typeref:struct:s_x4node::s_x4node	file:
+fws	sqlparser/mdb_lemon.c	/^  char *fws;               \/* Follow-set for this configuration only *\/$/;"	m	struct:config	file:
+getKeyToken	sqlparser/lexer.cpp	/^int getKeyToken(std::map<std::string,int> m, const char *id,unsigned len){$/;"	f
+getNextToken	sqlparser/lexer.cpp	/^int Lexer::getNextToken(){$/;"	f	class:Lexer
+getOffset	sqlparser/lexer.h	/^		unsigned int getOffset() const{$/;"	f	class:Lexer
+getParsertf	executor/exec.h	/^		string getParsertf() const{$/;"	f	class:Executor
+getQuery	executor/exec.h	/^		string getQuery() const{$/;"	f	class:Executor
+getSqlStr	sqlparser/lexer.h	/^		const char *getSqlStr() const{$/;"	f	class:Lexer
+getTkLen	sqlparser/lexer.h	/^		unsigned int getTkLen() const{$/;"	f	class:Lexer
+getTkType	sqlparser/lexer.h	/^		int getTkType() const{$/;"	f	class:Lexer
+getstate	sqlparser/mdb_lemon.c	/^PRIVATE struct state *getstate(lemp)$/;"	f
+gp	sqlparser/mdb_lemon.c	/^  struct lemon *gp;     \/* Global state vector *\/$/;"	m	struct:pstate	typeref:struct:pstate::lemon	file:
+handle_D_option	sqlparser/mdb_lemon.c	/^static void handle_D_option(char *z){$/;"	f	file:
+handleflags	sqlparser/mdb_lemon.c	/^static int handleflags(i,err)$/;"	f	file:
+handleswitch	sqlparser/mdb_lemon.c	/^static int handleswitch(i,err)$/;"	f	file:
+has_destructor	sqlparser/mdb_lemon.c	/^int has_destructor(sp, lemp)$/;"	f
+has_fallback	sqlparser/mdb_lemon.c	/^  int has_fallback;        \/* True if any %fallback is seen in the grammer *\/$/;"	m	struct:lemon	file:
+ht	sqlparser/mdb_lemon.c	/^  struct s_x1node **ht;  \/* Hash table for lookups *\/$/;"	m	struct:s_x1	typeref:struct:s_x1::s_x1node	file:
+ht	sqlparser/mdb_lemon.c	/^  struct s_x2node **ht;  \/* Hash table for lookups *\/$/;"	m	struct:s_x2	typeref:struct:s_x2::s_x2node	file:
+ht	sqlparser/mdb_lemon.c	/^  struct s_x3node **ht;  \/* Hash table for lookups *\/$/;"	m	struct:s_x3	typeref:struct:s_x3::s_x3node	file:
+ht	sqlparser/mdb_lemon.c	/^  struct s_x4node **ht;  \/* Hash table for lookups *\/$/;"	m	struct:s_x4	typeref:struct:s_x4::s_x4node	file:
+iDflt	sqlparser/mdb_lemon.c	/^  int iDflt;               \/* Default action *\/$/;"	m	struct:state	file:
+iNtOfst	sqlparser/mdb_lemon.c	/^  int iTknOfst, iNtOfst;   \/* yy_action[] offset for terminals and nonterms *\/$/;"	m	struct:state	file:
+iTknOfst	sqlparser/mdb_lemon.c	/^  int iTknOfst, iNtOfst;   \/* yy_action[] offset for terminals and nonterms *\/$/;"	m	struct:state	file:
+ifReachEnd	sqlparser/lexer.cpp	/^int Lexer::ifReachEnd(){$/;"	f	class:Lexer
+include	sqlparser/mdb_lemon.c	/^  char *include;           \/* Code to put at the start of the C file *\/$/;"	m	struct:lemon	file:
+includeln	sqlparser/mdb_lemon.c	/^  int  includeln;          \/* Line number for start of include code *\/$/;"	m	struct:lemon	file:
+index	sqlparser/mdb_lemon.c	/^  int index;               \/* An index number for this rule *\/$/;"	m	struct:rule	file:
+index	sqlparser/mdb_lemon.c	/^  int index;               \/* Index number for this symbol *\/$/;"	m	struct:symbol	file:
+index	sqlparser/mdb_lemon.c	/^  int index;               \/* Sequencial number for this state *\/$/;"	m	struct:state	file:
+initKeyword	sqlparser/lexer.cpp	/^std::map<std::string,int> initKeyword(){$/;"	f
+input	sqlparser/parser.y	/^input ::= cmdlist.$/;"	l
+isIdChar	sqlparser/lexer.cpp	/^int isIdChar(int c){$/;"	f
+isTkn	sqlparser/mdb_lemon.c	/^  int isTkn;           \/* True to use tokens.  False for non-terminals *\/$/;"	m	struct:axset	file:
+key	sqlparser/mdb_lemon.c	/^  char *key;                   \/* The key *\/$/;"	m	struct:s_x2node	file:
+key	sqlparser/mdb_lemon.c	/^  struct config *key;                   \/* The key *\/$/;"	m	struct:s_x3node	typeref:struct:s_x3node::config	file:
+keywords	sqlparser/lexer.cpp	/^std::map<std::string,int> keywords=initKeyword();$/;"	v
+label	sqlparser/mdb_lemon.c	/^  char *label;$/;"	m	struct:s_options	file:
+lambda	sqlparser/mdb_lemon.c	/^  Boolean lambda;          \/* True if NT and can generate an empty string *\/$/;"	m	struct:symbol	file:
+lastrule	sqlparser/mdb_lemon.c	/^  struct rule *lastrule;     \/* Pointer to the most recently parsed rule *\/$/;"	m	struct:pstate	typeref:struct:pstate::rule	file:
+lemon	sqlparser/mdb_lemon.c	/^struct lemon {$/;"	s	file:
+lhs	sqlparser/lempar.c	/^  YYCODETYPE lhs;         \/* Symbol on the left-hand side of the rule *\/$/;"	m	struct:__anon3	file:
+lhs	sqlparser/mdb_lemon.c	/^  struct symbol *lhs;        \/* Left-hand side of current rule *\/$/;"	m	struct:pstate	typeref:struct:pstate::symbol	file:
+lhs	sqlparser/mdb_lemon.c	/^  struct symbol *lhs;      \/* Left-hand side of the rule *\/$/;"	m	struct:rule	typeref:struct:rule::symbol	file:
+lhs	sqlparser/parser.cpp	/^  YYCODETYPE lhs;         \/* Symbol on the left-hand side of the rule *\/$/;"	m	struct:__anon2	file:
+lhsalias	sqlparser/mdb_lemon.c	/^  char *lhsalias;            \/* Alias for the LHS *\/$/;"	m	struct:pstate	file:
+lhsalias	sqlparser/mdb_lemon.c	/^  char *lhsalias;          \/* Alias for the LHS (NULL if none) *\/$/;"	m	struct:rule	file:
+line	sqlparser/mdb_lemon.c	/^  int line;                \/* Line number at which code begins *\/$/;"	m	struct:rule	file:
+lookahead	sqlparser/mdb_lemon.c	/^    int lookahead;             \/* Value of the lookahead token *\/$/;"	m	struct:acttab::__anon9	file:
+main	main.cpp	/^int main(int argc,char **argv){$/;"	f
+main	sqlparser/mdb_lemon.c	/^int main(argc,argv)$/;"	f
+main	test/test.cpp	/^int main(){$/;"	f
+main	util/test.cpp	/^int main(int argc,char **argv){$/;"	f
+major	sqlparser/lempar.c	/^  int major;         \/* The major token value.  This is the code$/;"	m	struct:yyStackEntry	file:
+major	sqlparser/parser.cpp	/^  int major;         \/* The major token value.  This is the code$/;"	m	struct:yyStackEntry	file:
+mdbBeginParse	sqlparser/parsefunc.cpp	/^void mdbBeginParse(Parse  *pParse,int explainFlag){$/;"	f
+mdbGetCwd	main.cpp	/^std::string mdbGetCwd(){$/;"	f
+mdbParser	sqlparser/parser.cpp	/^void mdbParser($/;"	f
+mdbParserARG_FETCH	sqlparser/parser.cpp	84;"	d	file:
+mdbParserARG_PDECL	sqlparser/parser.cpp	83;"	d	file:
+mdbParserARG_SDECL	sqlparser/parser.cpp	82;"	d	file:
+mdbParserARG_STORE	sqlparser/parser.cpp	85;"	d	file:
+mdbParserAlloc	sqlparser/parser.cpp	/^void *mdbParserAlloc(void *(*mallocProc)(size_t)){$/;"	f
+mdbParserFree	sqlparser/parser.cpp	/^void mdbParserFree($/;"	f
+mdbParserTOKENTYPE	sqlparser/parser.cpp	74;"	d	file:
+mdbParserTokenName	sqlparser/parser.cpp	/^const char *mdbParserTokenName(int tokenType){$/;"	f
+mdbParserTrace	sqlparser/parser.cpp	/^void mdbParserTrace(FILE *TraceFILE, char *zTracePrompt){$/;"	f
+memory_error	sqlparser/mdb_lemon.c	/^void memory_error(){$/;"	f
+merge	sqlparser/mdb_lemon.c	/^static char *merge(a,b,cmp,offset)$/;"	f	file:
+message	sqlparser/mdb_lemon.c	/^  char *message;$/;"	m	struct:s_options	file:
+minimum_size_type	sqlparser/mdb_lemon.c	/^static const char *minimum_size_type(int lwr, int upr){$/;"	f	file:
+minor	sqlparser/lempar.c	/^  YYMINORTYPE minor; \/* The user-supplied minor token value.  This$/;"	m	struct:yyStackEntry	file:
+minor	sqlparser/parser.cpp	/^  YYMINORTYPE minor; \/* The user-supplied minor token value.  This$/;"	m	struct:yyStackEntry	file:
+mnAction	sqlparser/mdb_lemon.c	/^  int mnAction;                \/* Action associated with mnLookahead *\/$/;"	m	struct:acttab	file:
+mnLookahead	sqlparser/mdb_lemon.c	/^  int mnLookahead;             \/* Minimum aLookahead[].lookahead *\/$/;"	m	struct:acttab	file:
+msort	sqlparser/mdb_lemon.c	/^char *msort(list,next,cmp)$/;"	f
+mxLookahead	sqlparser/mdb_lemon.c	/^  int mxLookahead;             \/* Maximum aLookahead[].lookahead *\/$/;"	m	struct:acttab	file:
+myassert	sqlparser/mdb_lemon.c	/^void myassert(file,line)$/;"	f
+n	mdbtype.h	/^    unsigned n:31;$/;"	m	struct:Token
+nAction	sqlparser/mdb_lemon.c	/^  int nAction;                 \/* Number of used slots in aAction[] *\/$/;"	m	struct:acttab	file:
+nAction	sqlparser/mdb_lemon.c	/^  int nAction;         \/* Number of actions *\/$/;"	m	struct:axset	file:
+nActionAlloc	sqlparser/mdb_lemon.c	/^  int nActionAlloc;            \/* Slots allocated for aAction[] *\/$/;"	m	struct:acttab	file:
+nDefine	sqlparser/mdb_lemon.c	/^static int nDefine = 0;      \/* Number of -D options on the command line *\/$/;"	v	file:
+nLookahead	sqlparser/mdb_lemon.c	/^  int nLookahead;              \/* Used slots in aLookahead[] *\/$/;"	m	struct:acttab	file:
+nLookaheadAlloc	sqlparser/mdb_lemon.c	/^  int nLookaheadAlloc;         \/* Slots allocated in aLookahead[] *\/$/;"	m	struct:acttab	file:
+nNtAct	sqlparser/mdb_lemon.c	/^  int nTknAct, nNtAct;     \/* Number of actions on terminals and nonterminals *\/$/;"	m	struct:state	file:
+nTknAct	sqlparser/mdb_lemon.c	/^  int nTknAct, nNtAct;     \/* Number of actions on terminals and nonterminals *\/$/;"	m	struct:state	file:
+name	sqlparser/mdb_lemon.c	/^  char *name;              \/* Name of the generated parser *\/$/;"	m	struct:lemon	file:
+name	sqlparser/mdb_lemon.c	/^  char *name;              \/* Name of the symbol *\/$/;"	m	struct:symbol	file:
+nconflict	sqlparser/mdb_lemon.c	/^  int nconflict;           \/* Number of parsing conflicts *\/$/;"	m	struct:lemon	file:
+newconfig	sqlparser/mdb_lemon.c	/^PRIVATE struct config *newconfig(){$/;"	f
+next	sqlparser/mdb_lemon.c	/^  struct action *next;     \/* Next action for this state *\/$/;"	m	struct:action	typeref:struct:action::action	file:
+next	sqlparser/mdb_lemon.c	/^  struct config *next;     \/* Next configuration in the state *\/$/;"	m	struct:config	typeref:struct:config::config	file:
+next	sqlparser/mdb_lemon.c	/^  struct plink *next;      \/* The next propagate link *\/$/;"	m	struct:plink	typeref:struct:plink::plink	file:
+next	sqlparser/mdb_lemon.c	/^  struct rule *next;       \/* Next rule in the global list *\/$/;"	m	struct:rule	typeref:struct:rule::rule	file:
+next	sqlparser/mdb_lemon.c	/^  struct s_x1node *next;   \/* Next entry with the same hash *\/$/;"	m	struct:s_x1node	typeref:struct:s_x1node::s_x1node	file:
+next	sqlparser/mdb_lemon.c	/^  struct s_x2node *next;   \/* Next entry with the same hash *\/$/;"	m	struct:s_x2node	typeref:struct:s_x2node::s_x2node	file:
+next	sqlparser/mdb_lemon.c	/^  struct s_x3node *next;   \/* Next entry with the same hash *\/$/;"	m	struct:s_x3node	typeref:struct:s_x3node::s_x3node	file:
+next	sqlparser/mdb_lemon.c	/^  struct s_x4node *next;   \/* Next entry with the same hash *\/$/;"	m	struct:s_x4node	typeref:struct:s_x4node::s_x4node	file:
+nextlhs	sqlparser/mdb_lemon.c	/^  struct rule *nextlhs;    \/* Next rule with the same LHS *\/$/;"	m	struct:rule	typeref:struct:rule::rule	file:
+nrhs	sqlparser/lempar.c	/^  unsigned char nrhs;     \/* Number of right-hand side symbols in the rule *\/$/;"	m	struct:__anon3	file:
+nrhs	sqlparser/mdb_lemon.c	/^  int nrhs;                  \/* Number of right-hand side symbols seen *\/$/;"	m	struct:pstate	file:
+nrhs	sqlparser/mdb_lemon.c	/^  int nrhs;                \/* Number of RHS symbols *\/$/;"	m	struct:rule	file:
+nrhs	sqlparser/parser.cpp	/^  unsigned char nrhs;     \/* Number of right-hand side symbols in the rule *\/$/;"	m	struct:__anon2	file:
+nrule	sqlparser/mdb_lemon.c	/^  int nrule;               \/* Number of rules *\/$/;"	m	struct:lemon	file:
+nstate	sqlparser/mdb_lemon.c	/^  int nstate;              \/* Number of states *\/$/;"	m	struct:lemon	file:
+nsymbol	sqlparser/mdb_lemon.c	/^  int nsymbol;             \/* Number of terminal and nonterminal symbols *\/$/;"	m	struct:lemon	file:
+nterminal	sqlparser/mdb_lemon.c	/^  int nterminal;           \/* Number of terminal symbols *\/$/;"	m	struct:lemon	file:
+op	sqlparser/mdb_lemon.c	/^static struct s_options *op;$/;"	v	typeref:struct:s_options	file:
+outname	sqlparser/mdb_lemon.c	/^  char *outname;           \/* Name of the current output file *\/$/;"	m	struct:lemon	file:
+overflow	sqlparser/mdb_lemon.c	/^  char *overflow;          \/* Code to execute on a stack overflow *\/$/;"	m	struct:lemon	file:
+overflowln	sqlparser/mdb_lemon.c	/^  int  overflowln;         \/* Line number for start of overflow code *\/$/;"	m	struct:lemon	file:
+parseonetoken	sqlparser/mdb_lemon.c	/^static void parseonetoken(psp)$/;"	f	file:
+parsertf	executor/exec.h	/^		string parsertf;$/;"	m	class:Executor
+pathsearch	sqlparser/mdb_lemon.c	/^PRIVATE char *pathsearch(argv0,name,modemask)$/;"	f
+plink	sqlparser/mdb_lemon.c	/^struct plink {$/;"	s	file:
+plink_freelist	sqlparser/mdb_lemon.c	/^static struct plink *plink_freelist = 0;$/;"	v	typeref:struct:plink	file:
+plus_opt	sqlparser/parser.y	/^plus_opt ::=.$/;"	l
+plus_opt	sqlparser/parser.y	/^plus_opt ::=PLUS.$/;"	l
+prec	sqlparser/mdb_lemon.c	/^  int prec;                \/* Precedence if defined (-1 otherwise) *\/$/;"	m	struct:symbol	file:
+preccounter	sqlparser/mdb_lemon.c	/^  int preccounter;           \/* Assign this precedence to decl arguments *\/$/;"	m	struct:pstate	file:
+precsym	sqlparser/mdb_lemon.c	/^  struct symbol *precsym;  \/* Precedence symbol for this rule *\/$/;"	m	struct:rule	typeref:struct:rule::symbol	file:
+prepare	executor/exec.cpp	/^int Executor::prepare(){$/;"	f	class:Executor
+preprocess_input	sqlparser/mdb_lemon.c	/^static void preprocess_input(char *z){$/;"	f	file:
+prevrule	sqlparser/mdb_lemon.c	/^  struct rule *prevrule;     \/* Previous rule parsed *\/$/;"	m	struct:pstate	typeref:struct:pstate::rule	file:
+printUsage	main.cpp	/^void printUsage(){$/;"	f
+print_stack_union	sqlparser/mdb_lemon.c	/^void print_stack_union(out,lemp,plineno,mhflag)$/;"	f
+prompt	main.cpp	/^std::string prompt="mdb#";$/;"	v
+pstate	sqlparser/mdb_lemon.c	/^struct pstate {$/;"	s	file:
+querystr	executor/exec.h	/^		string querystr;$/;"	m	class:Executor
+resolve_conflict	sqlparser/mdb_lemon.c	/^static int resolve_conflict(apx,apy,errsym)$/;"	f	file:
+rhs	sqlparser/mdb_lemon.c	/^  struct symbol **rhs;     \/* The RHS symbols *\/$/;"	m	struct:rule	typeref:struct:rule::symbol	file:
+rhs	sqlparser/mdb_lemon.c	/^  struct symbol *rhs[MAXRHS];  \/* RHS symbols *\/$/;"	m	struct:pstate	typeref:struct:pstate::symbol	file:
+rhsalias	sqlparser/mdb_lemon.c	/^  char **rhsalias;         \/* An alias for each RHS symbol (NULL if none) *\/$/;"	m	struct:rule	file:
+rp	sqlparser/mdb_lemon.c	/^    struct rule *rp;       \/* The rule, if a reduce *\/$/;"	m	union:action::__anon8	typeref:struct:action::__anon8::rule	file:
+rp	sqlparser/mdb_lemon.c	/^  struct rule *rp;         \/* The rule upon which the configuration is based *\/$/;"	m	struct:config	typeref:struct:config::rule	file:
+rule	sqlparser/mdb_lemon.c	/^  struct rule *rule;       \/* Linked list of rules of this (if an NT) *\/$/;"	m	struct:symbol	typeref:struct:symbol::rule	file:
+rule	sqlparser/mdb_lemon.c	/^  struct rule *rule;       \/* List of all rules *\/$/;"	m	struct:lemon	typeref:struct:lemon::rule	file:
+rule	sqlparser/mdb_lemon.c	/^struct rule {$/;"	s	file:
+ruleline	sqlparser/mdb_lemon.c	/^  int ruleline;            \/* Line number for the rule *\/$/;"	m	struct:rule	file:
+runParser	executor/exec.cpp	/^int Executor::runParser(Parse *pParse,const char *sqlstr){$/;"	f	class:Executor
+s_options	sqlparser/mdb_lemon.c	/^struct s_options {$/;"	s	file:
+s_x1	sqlparser/mdb_lemon.c	/^struct s_x1 {$/;"	s	file:
+s_x1node	sqlparser/mdb_lemon.c	/^typedef struct s_x1node {$/;"	s	file:
+s_x2	sqlparser/mdb_lemon.c	/^struct s_x2 {$/;"	s	file:
+s_x2node	sqlparser/mdb_lemon.c	/^typedef struct s_x2node {$/;"	s	file:
+s_x3	sqlparser/mdb_lemon.c	/^struct s_x3 {$/;"	s	file:
+s_x3node	sqlparser/mdb_lemon.c	/^typedef struct s_x3node {$/;"	s	file:
+s_x4	sqlparser/mdb_lemon.c	/^struct s_x4 {$/;"	s	file:
+s_x4node	sqlparser/mdb_lemon.c	/^typedef struct s_x4node {$/;"	s	file:
+setParsertf	executor/exec.h	/^		void setParsertf(string filename){$/;"	f	class:Executor
+setQuery	executor/exec.h	/^		void setQuery(string str){$/;"	f	class:Executor
+size	sqlparser/mdb_lemon.c	/^  int size;               \/* The number of available slots. *\/$/;"	m	struct:s_x1	file:
+size	sqlparser/mdb_lemon.c	/^  int size;               \/* The number of available slots. *\/$/;"	m	struct:s_x2	file:
+size	sqlparser/mdb_lemon.c	/^  int size;               \/* The number of available slots. *\/$/;"	m	struct:s_x3	file:
+size	sqlparser/mdb_lemon.c	/^  int size;               \/* The number of available slots. *\/$/;"	m	struct:s_x4	file:
+size	sqlparser/mdb_lemon.c	/^static int size = 0;$/;"	v	file:
+sorted	sqlparser/mdb_lemon.c	/^  struct state **sorted;   \/* Table of states sorted by state number *\/$/;"	m	struct:lemon	typeref:struct:lemon::state	file:
+sp	sqlparser/mdb_lemon.c	/^  struct symbol *sp;       \/* The look-ahead symbol *\/$/;"	m	struct:action	typeref:struct:action::symbol	file:
+sqlstr	sqlparser/lexer.h	/^		const char *sqlstr;$/;"	m	class:Lexer
+stacksize	sqlparser/mdb_lemon.c	/^  char *stacksize;         \/* Size of the parser stack *\/$/;"	m	struct:lemon	file:
+start	sqlparser/mdb_lemon.c	/^  char *start;             \/* Name of the start symbol for the grammar *\/$/;"	m	struct:lemon	file:
+state	sqlparser/mdb_lemon.c	/^  } state;                   \/* The state of the parser *\/$/;"	m	struct:pstate	typeref:enum:pstate::e_state	file:
+state	sqlparser/mdb_lemon.c	/^struct state {$/;"	s	file:
+statecmp	sqlparser/mdb_lemon.c	/^PRIVATE int statecmp(a,b)$/;"	f
+statehash	sqlparser/mdb_lemon.c	/^PRIVATE int statehash(a)$/;"	f
+stateno	sqlparser/lempar.c	/^  int stateno;       \/* The state-number *\/$/;"	m	struct:yyStackEntry	file:
+stateno	sqlparser/parser.cpp	/^  int stateno;       \/* The state-number *\/$/;"	m	struct:yyStackEntry	file:
+status	sqlparser/mdb_lemon.c	/^  } status;$/;"	m	struct:config	typeref:enum:config::__anon7	file:
+stp	sqlparser/mdb_lemon.c	/^    struct state *stp;     \/* The new state, if a shift *\/$/;"	m	union:action::__anon8	typeref:struct:action::__anon8::state	file:
+stp	sqlparser/mdb_lemon.c	/^  struct state *stp;       \/* Pointer to state which contains this *\/$/;"	m	struct:config	typeref:struct:config::state	file:
+stp	sqlparser/mdb_lemon.c	/^  struct state *stp;   \/* A pointer to a state *\/$/;"	m	struct:axset	typeref:struct:axset::state	file:
+strhash	sqlparser/mdb_lemon.c	/^PRIVATE int strhash(x)$/;"	f
+symbol	sqlparser/mdb_lemon.c	/^struct symbol {$/;"	s	file:
+symbols	sqlparser/mdb_lemon.c	/^  struct symbol **symbols; \/* Sorted array of pointers to symbols *\/$/;"	m	struct:lemon	typeref:struct:lemon::symbol	file:
+tablesize	sqlparser/mdb_lemon.c	/^  int tablesize;           \/* Size of the parse tables *\/$/;"	m	struct:lemon	file:
+tbl	sqlparser/mdb_lemon.c	/^  struct s_x1node *tbl;  \/* The data stored here *\/$/;"	m	struct:s_x1	typeref:struct:s_x1::s_x1node	file:
+tbl	sqlparser/mdb_lemon.c	/^  struct s_x2node *tbl;  \/* The data stored here *\/$/;"	m	struct:s_x2	typeref:struct:s_x2::s_x2node	file:
+tbl	sqlparser/mdb_lemon.c	/^  struct s_x3node *tbl;  \/* The data stored here *\/$/;"	m	struct:s_x3	typeref:struct:s_x3::s_x3node	file:
+tbl	sqlparser/mdb_lemon.c	/^  struct s_x4node *tbl;  \/* The data stored here *\/$/;"	m	struct:s_x4	typeref:struct:s_x4::s_x4node	file:
+tk_len	sqlparser/lexer.h	/^		unsigned int tk_len;$/;"	m	class:Lexer
+tk_offset	sqlparser/lexer.h	/^		unsigned int tk_offset;$/;"	m	class:Lexer
+tk_type	sqlparser/lexer.h	/^		int tk_type;$/;"	m	class:Lexer
+tokendest	sqlparser/mdb_lemon.c	/^  char *tokendest;         \/* Code to execute to destroy token data *\/$/;"	m	struct:lemon	file:
+tokendestln	sqlparser/mdb_lemon.c	/^  int  tokendestln;        \/* Line number for token destroyer code *\/$/;"	m	struct:lemon	file:
+tokenlineno	sqlparser/mdb_lemon.c	/^  int tokenlineno;      \/* Linenumber at which current token starts *\/$/;"	m	struct:pstate	file:
+tokenprefix	sqlparser/mdb_lemon.c	/^  char *tokenprefix;       \/* A prefix added to token names in the .h file *\/$/;"	m	struct:lemon	file:
+tokenstart	sqlparser/mdb_lemon.c	/^  char *tokenstart;     \/* Text of current token *\/$/;"	m	struct:pstate	file:
+tokentype	sqlparser/mdb_lemon.c	/^  char *tokentype;         \/* Type of terminal symbols in the parser stack *\/$/;"	m	struct:lemon	file:
+tplt_linedir	sqlparser/mdb_lemon.c	/^PRIVATE void tplt_linedir(out,lineno,filename)$/;"	f
+tplt_open	sqlparser/mdb_lemon.c	/^PRIVATE FILE *tplt_open(lemp)$/;"	f
+tplt_print	sqlparser/mdb_lemon.c	/^PRIVATE void tplt_print(out,lemp,str,strln,lineno)$/;"	f
+tplt_xfer	sqlparser/mdb_lemon.c	/^PRIVATE void tplt_xfer(name,in,out,lineno)$/;"	f
+tracePrint	util/trace.cpp	/^void Tracer::tracePrint(tracelevel level,const char *fmt,...){$/;"	f	class:Tracer
+tracefile	util/trace.h	/^    std::string tracefile;$/;"	m	class:Tracer
+tracelevel	util/trace.h	/^typedef enum tracelevel{$/;"	g
+tracelevel	util/trace.h	/^}tracelevel;$/;"	t	typeref:enum:tracelevel
+translate_code	sqlparser/mdb_lemon.c	/^PRIVATE void translate_code(struct lemon *lemp, struct rule *rp){$/;"	f
+type	sqlparser/mdb_lemon.c	/^         OPT_FFLAG, OPT_FINT, OPT_FDBL, OPT_FSTR} type;$/;"	m	struct:s_options	typeref:enum:s_options::__anon4	file:
+type	sqlparser/mdb_lemon.c	/^  } type;                  \/* Symbols are all either TERMINALS or NTs *\/$/;"	m	struct:symbol	typeref:enum:symbol::__anon6	file:
+type	sqlparser/mdb_lemon.c	/^  } type;$/;"	m	struct:action	typeref:enum:action::e_action	file:
+type	sqlparser/parser.y	/^type ::=.$/;"	l
+type	sqlparser/parser.y	/^type ::=typetoken(X). $/;"	l
+vardest	sqlparser/mdb_lemon.c	/^  char *vardest;           \/* Code for the default non-terminal destructor *\/$/;"	m	struct:lemon	file:
+vardestln	sqlparser/mdb_lemon.c	/^  int  vardestln;          \/* Line number for default non-term destructor code*\/$/;"	m	struct:lemon	file:
+vartype	sqlparser/mdb_lemon.c	/^  char *vartype;           \/* The default type of non-terminal symbols *\/$/;"	m	struct:lemon	file:
+versioninfo	main.cpp	/^std::string versioninfo="Mdb version 0.1, enjoy!";$/;"	v
+x	sqlparser/mdb_lemon.c	/^  } x;$/;"	m	struct:action	typeref:union:action::__anon8	file:
+x1a	sqlparser/mdb_lemon.c	/^static struct s_x1 *x1a;$/;"	v	typeref:struct:s_x1	file:
+x1node	sqlparser/mdb_lemon.c	/^} x1node;$/;"	t	typeref:struct:s_x1node	file:
+x2a	sqlparser/mdb_lemon.c	/^static struct s_x2 *x2a;$/;"	v	typeref:struct:s_x2	file:
+x2node	sqlparser/mdb_lemon.c	/^} x2node;$/;"	t	typeref:struct:s_x2node	file:
+x3a	sqlparser/mdb_lemon.c	/^static struct s_x3 *x3a;$/;"	v	typeref:struct:s_x3	file:
+x3node	sqlparser/mdb_lemon.c	/^} x3node;$/;"	t	typeref:struct:s_x3node	file:
+x4a	sqlparser/mdb_lemon.c	/^static struct s_x4 *x4a;$/;"	v	typeref:struct:s_x4	file:
+x4node	sqlparser/mdb_lemon.c	/^} x4node;$/;"	t	typeref:struct:s_x4node	file:
+yy0	sqlparser/parser.cpp	/^  mdbParserTOKENTYPE yy0;$/;"	m	union:__anon1	file:
+yy109	sqlparser/parser.cpp	/^  int yy109;$/;"	m	union:__anon1	file:
+yy4	sqlparser/parser.cpp	/^  int yy4;$/;"	m	union:__anon1	file:
+yy90	sqlparser/parser.cpp	/^  Token yy90;$/;"	m	union:__anon1	file:
+yyFallback	sqlparser/lempar.c	/^static const YYCODETYPE yyFallback[] = {$/;"	v	file:
+yyFallback	sqlparser/parser.cpp	/^static const YYCODETYPE yyFallback[] = {$/;"	v	file:
+yyParser	sqlparser/lempar.c	/^struct yyParser {$/;"	s	file:
+yyParser	sqlparser/lempar.c	/^typedef struct yyParser yyParser;$/;"	t	typeref:struct:yyParser	file:
+yyParser	sqlparser/parser.cpp	/^struct yyParser {$/;"	s	file:
+yyParser	sqlparser/parser.cpp	/^typedef struct yyParser yyParser;$/;"	t	typeref:struct:yyParser	file:
+yyRuleInfo	sqlparser/lempar.c	/^} yyRuleInfo[] = {$/;"	v	typeref:struct:__anon3	file:
+yyRuleInfo	sqlparser/parser.cpp	/^} yyRuleInfo[] = {$/;"	v	typeref:struct:__anon2	file:
+yyRuleName	sqlparser/lempar.c	/^static const char *const yyRuleName[] = {$/;"	v	file:
+yyRuleName	sqlparser/parser.cpp	/^static const char *const yyRuleName[] = {$/;"	v	file:
+yyStackEntry	sqlparser/lempar.c	/^struct yyStackEntry {$/;"	s	file:
+yyStackEntry	sqlparser/lempar.c	/^typedef struct yyStackEntry yyStackEntry;$/;"	t	typeref:struct:yyStackEntry	file:
+yyStackEntry	sqlparser/parser.cpp	/^struct yyStackEntry {$/;"	s	file:
+yyStackEntry	sqlparser/parser.cpp	/^typedef struct yyStackEntry yyStackEntry;$/;"	t	typeref:struct:yyStackEntry	file:
+yyTokenName	sqlparser/lempar.c	/^static const char *const yyTokenName[] = { $/;"	v	file:
+yyTokenName	sqlparser/parser.cpp	/^static const char *const yyTokenName[] = { $/;"	v	file:
+yyTraceFILE	sqlparser/lempar.c	/^static FILE *yyTraceFILE = 0;$/;"	v	file:
+yyTraceFILE	sqlparser/parser.cpp	/^static FILE *yyTraceFILE = 0;$/;"	v	file:
+yyTracePrompt	sqlparser/lempar.c	/^static char *yyTracePrompt = 0;$/;"	v	file:
+yyTracePrompt	sqlparser/parser.cpp	/^static char *yyTracePrompt = 0;$/;"	v	file:
+yy_accept	sqlparser/lempar.c	/^static void yy_accept($/;"	f	file:
+yy_accept	sqlparser/parser.cpp	/^static void yy_accept($/;"	f	file:
+yy_action	sqlparser/parser.cpp	/^static const YYACTIONTYPE yy_action[] = {$/;"	v	file:
+yy_default	sqlparser/parser.cpp	/^static const YYACTIONTYPE yy_default[] = {$/;"	v	file:
+yy_destructor	sqlparser/lempar.c	/^static void yy_destructor(YYCODETYPE yymajor, YYMINORTYPE *yypminor){$/;"	f	file:
+yy_destructor	sqlparser/parser.cpp	/^static void yy_destructor(YYCODETYPE yymajor, YYMINORTYPE *yypminor){$/;"	f	file:
+yy_find_reduce_action	sqlparser/lempar.c	/^static int yy_find_reduce_action($/;"	f	file:
+yy_find_reduce_action	sqlparser/parser.cpp	/^static int yy_find_reduce_action($/;"	f	file:
+yy_find_shift_action	sqlparser/lempar.c	/^static int yy_find_shift_action($/;"	f	file:
+yy_find_shift_action	sqlparser/parser.cpp	/^static int yy_find_shift_action($/;"	f	file:
+yy_lookahead	sqlparser/parser.cpp	/^static const YYCODETYPE yy_lookahead[] = {$/;"	v	file:
+yy_parse_failed	sqlparser/lempar.c	/^static void yy_parse_failed($/;"	f	file:
+yy_parse_failed	sqlparser/parser.cpp	/^static void yy_parse_failed($/;"	f	file:
+yy_pop_parser_stack	sqlparser/lempar.c	/^static int yy_pop_parser_stack(yyParser *pParser){$/;"	f	file:
+yy_pop_parser_stack	sqlparser/parser.cpp	/^static int yy_pop_parser_stack(yyParser *pParser){$/;"	f	file:
+yy_reduce	sqlparser/lempar.c	/^static void yy_reduce($/;"	f	file:
+yy_reduce	sqlparser/parser.cpp	/^static void yy_reduce($/;"	f	file:
+yy_reduce_ofst	sqlparser/parser.cpp	/^static const signed char yy_reduce_ofst[] = {$/;"	v	file:
+yy_shift	sqlparser/lempar.c	/^static void yy_shift($/;"	f	file:
+yy_shift	sqlparser/parser.cpp	/^static void yy_shift($/;"	f	file:
+yy_shift_ofst	sqlparser/parser.cpp	/^static const signed char yy_shift_ofst[] = {$/;"	v	file:
+yy_syntax_error	sqlparser/lempar.c	/^static void yy_syntax_error($/;"	f	file:
+yy_syntax_error	sqlparser/parser.cpp	/^static void yy_syntax_error($/;"	f	file:
+yyerrcnt	sqlparser/lempar.c	/^  int yyerrcnt;                 \/* Shifts left before out of the error *\/$/;"	m	struct:yyParser	file:
+yyerrcnt	sqlparser/parser.cpp	/^  int yyerrcnt;                 \/* Shifts left before out of the error *\/$/;"	m	struct:yyParser	file:
+yyidx	sqlparser/lempar.c	/^  int yyidx;                    \/* Index of top element in stack *\/$/;"	m	struct:yyParser	file:
+yyidx	sqlparser/parser.cpp	/^  int yyidx;                    \/* Index of top element in stack *\/$/;"	m	struct:yyParser	file:
+yystack	sqlparser/lempar.c	/^  yyStackEntry yystack[YYSTACKDEPTH];  \/* The parser's stack *\/$/;"	m	struct:yyParser	file:
+yystack	sqlparser/parser.cpp	/^  yyStackEntry yystack[YYSTACKDEPTH];  \/* The parser's stack *\/$/;"	m	struct:yyParser	file:
+z	mdbtype.h	/^	const unsigned char *z;$/;"	m	struct:Token
+zSql	mdbtype.h	/^	const char *zSql;$/;"	m	struct:Parse

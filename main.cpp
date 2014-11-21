@@ -4,7 +4,8 @@
 #include <iostream>
 #include <string>
 #include "util/trace.h"
-#include "mdbheader.h"
+#include "executor/exec.h"
+#include "mdbtype.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -53,7 +54,10 @@ int main(int argc,char **argv){
 	int c;
 	extern char *optarg;
 	extern int optopt;
-	while((c=getopt(argc,argv,":f:d:vh"))!=-1){
+
+	char *cmd=NULL;
+
+	while((c=getopt(argc,argv,":f:d:vhe:"))!=-1){
 		switch(c){
 			case 'v':
 				printf("%s\n",versioninfo.c_str());
@@ -63,6 +67,9 @@ int main(int argc,char **argv){
 				exit(0);
 			case 'f':
 				conf_name=optarg;
+				break;
+			case 'e':
+				cmd=optarg;
 				break;
 			case 'd':
 				dbname=optarg;
@@ -107,14 +114,27 @@ int main(int argc,char **argv){
 		}
 	}
 	Tracer::tracePrint(INFO,"change to data directory : %s",dbname.c_str());
+	/**  Be carefull, because here I choose to chdir to the data directory
+	 *	 so from now on the relative path is not the mdb
+	 * */
 	if(chdir(dbname.c_str())!=0){
 			Tracer::tracePrint(ERROR,"change to  directory:%s,failed %s",
 					dbname.c_str(),strerror(errno));
 			exit(0);
 	}
+
 	char inputline[MAXLINESIZE]={0};
 
 	printf("%s\n",versioninfo.c_str());
+	
+	if(cmd!=NULL){
+			Executor ex;
+			ex.setQuery(cmd);
+			ex.setParsertf(cwd+"/parsetrace.txt");
+			ex.prepare();
+			return 0;
+	}
+
 	int quitflag=0;
 	while(quitflag!=1){	
 		printf("%s",prompt.c_str());
@@ -132,7 +152,15 @@ int main(int argc,char **argv){
 		if(inputline[len-1]=='\n'){
 			inputline[len-1]=0;
 		}
-		printf("%s\n",inputline);
+		if(quitflag!=1){
+			printf("%s\n",inputline);
+			Executor ex;
+			ex.setQuery(inputline);
+			ex.setParsertf(cwd+"/parsetrace.txt");
+			ex.prepare();
+		}
+	
+
 	}
 	return 0;
 }

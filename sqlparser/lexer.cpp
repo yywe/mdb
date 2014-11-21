@@ -1,4 +1,5 @@
 #include "lexer.h"
+#include "../mdbtype.h"
 #include <map>
 #include <string>
 
@@ -10,12 +11,50 @@ std::map<std::string,int> initKeyword(){
 	return m;
 }
 
+/*std::map<int,std::string> mapTktoStr(){
+	extern std::string cwd;
+
+	std::map<int,std::string> pairs;
+
+	std::string tkheader=cwd+"/sqlparser/parser.h";
+	FILE *fp=fopen(tkheader.c_str(),"r");
+	if(!fp){
+		printf("can not open the file %s",tkheader.c_str());
+		exit(0);
+	}
+	char buf[MAXLINESIZE]={0};
+	while(fgets(buf,MAXLINESIZE,fp)!=NULL){
+		std::string line=buf;
+		size_t start=line.find("TK_",0);
+		if(start!=std::string::npos){
+			size_t i=start;
+			while(*(line.c_str()+i)!=' ' && *(line.c_str()+i)!='\t') i++;
+			std::string tokenstr=line.substr(start,i-1);
+			int tkId=0;
+
+			while(*(line.c_str()+i)==' ' && *(line.c_str()+i)=='\t') i++;
+			if(i!=std::string::npos){
+				size_t j=i;
+				while(isdigit(*(line.c_str()+j))) j++;
+				tkId=atoi(line.substr(i,j).c_str());
+			}
+			pairs.insert(std::pair<int,std::string>(tkId,tokenstr));
+		}	
+	}
+	
+	fclose(fp);
+	return pairs;
+}
+*/
+
 std::map<std::string,int> keywords=initKeyword();
+//std::map<int,std::string> tkToStr=mapTktoStr();
 
 int getKeyToken(std::map<std::string,int> m, const char *id,unsigned len){
 	char *tmp=(char *)malloc(len+1);
+	memset(tmp,0,len+1);
 	strncpy(tmp,id,len);
-	int i;
+	unsigned i;
 	for(i=0;i<len;i++){
 		tmp[i]=toupper(tmp[i]);
 	}
@@ -93,6 +132,14 @@ int Lexer::getNextToken(){
 			tk_len=1;
 			return 0;
 		}
+		case '0': case '1': case '2': case '3': case '4': case '5': case '6':
+		case '7': case '8': case '9':
+		{
+			tk_type=TK_INTEGER;
+			for(i=1;isdigit(*(substr+i));i++){}
+			tk_len=i;
+			return 0;
+		}
 		default:
 		{
 			if(!isIdChar(*substr)){
@@ -116,6 +163,8 @@ int Lexer::ifReachEnd(){
 
 	return tk_offset>=strlen(sqlstr);
 }
+
+/*
 int main(){
 	Lexer lexer("create  table t1(id int,name varchar(12))");
 //	Lexer lexer("create  table t1(id int,name int)");
@@ -140,3 +189,4 @@ int main(){
 	}
 	return 0;
 }
+*/

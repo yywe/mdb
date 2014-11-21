@@ -14,6 +14,10 @@
 #include <ctype.h>
 #include <stdlib.h>
 
+/** add for the full path  2932*/
+#include <string.h>
+#include <unistd.h>
+
 #ifndef __WIN32__
 #   if defined(_WIN32) || defined(WIN32)
 #	define __WIN32__
@@ -2930,6 +2934,12 @@ FILE *out;
 int lineno;
 char *filename;
 {
+  char buf[1024]={0};
+  getcwd(buf,1024);
+  strcat(buf,"/");
+  strcat(buf,filename);
+
+  filename=buf;
   fprintf(out,"#line %d \"",lineno);
   while( *filename ){
     if( *filename == '\\' ) putc('\\',out);

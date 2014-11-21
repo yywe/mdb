@@ -1,0 +1,17 @@
+This little project is started for learning the principle of the 
+relational database. And it mainly referenced the implementation 
+of SQLite and MySQL.
+
+In order to make it as simple as possible, much of the code here 
+ignored the stable requirement as a productive database. So it is 
+some kind of ugly and full of bugs.
+
+But the most important things is to learn the interal principle of
+the database!
+
+To Do list:
+	1. finish the configuration module, use conf.ini.
+	2. change and complete the leximal analysis and syntax analysis
+	   lexer.cpp & parser.y
+	3. implement the backend logic of the database.
+	    create table ....

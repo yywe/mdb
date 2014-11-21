@@ -8,7 +8,11 @@
 extern "C" {
 #endif
 
-#include "../mdbheader.h"
+#include "../mdbtype.h"
+#include "../mdbproto.h"
+
+#include <stdlib.h>
+#include <string.h>
 
 #ifdef __cplusplus
 }
@@ -35,14 +39,16 @@ cmdlist ::= ecmd.
 ecmd ::= SEMI.
 ecmd ::= explain cmdx SEMI.
 cmdx ::= cmd.
-explain ::= .
+explain ::= . {mdbBeginParse(pParse,0);}
 
 ////////////////////////Create table syntax///////////////////////////////////
 cmd ::=create_table create_table_args.
 
 create_table ::=CREATE(X) TABLE nm(Y).
 
+
 create_table_args ::=LP columnlist conslist_opt(X) RP(Y).
+
 
 columnlist ::=columnlist COMMA column.
 columnlist ::=column.
@@ -78,8 +84,8 @@ typetoken(A) ::=typename(X) LP signed COMMA signed RP(Y).
 typename(A) ::=ids(X). {A=X;}
 
 %type signed {int}
-signed(A) ::=plus_num(X). {A=atoi(X.z);}
-signed(A) ::=minus_num(X). {A=-atoi(X.z);}
+signed(A) ::=plus_num(X). {A=atoi(reinterpret_cast<const char*>(X.z));}
+signed(A) ::=minus_num(X). {A=-atoi(reinterpret_cast<const char*>(X.z));}
 
 carglist ::=carglist carg.
 carglist ::=.

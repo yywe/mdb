@@ -29,6 +29,9 @@ class Lexer{
 		const char *getSqlStr() const{
 			return sqlstr;
 		}
+		int getTkType() const{
+			return tk_type;
+		}
 
 	private:
 		const char *sqlstr;

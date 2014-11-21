@@ -4,18 +4,22 @@
 /* First off, code is include which follows the "include" declaration
 ** in the input file. */
 #include <stdio.h>
-#line 6 "parser.y"
+#line 6 "/home/whisly/mdb/sqlparser/parser.y"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include "../mdbheader.h"
+#include "../mdbtype.h"
+#include "../mdbproto.h"
+
+#include <stdlib.h>
+#include <string.h>
 
 #ifdef __cplusplus
 }
 #endif
-#line 20 "parser.cpp"
+#line 24 "/home/whisly/mdb/sqlparser/parser.cpp"
 /* Next is all token values, in a form suitable for use by makeheaders.
 ** This section will be null unless lemon is run with the -m switch.
 */
@@ -180,7 +184,7 @@ static const YYACTIONTYPE yy_default[] = {
  /*    40 */    80,   82,   83,   98,   92,   94,   95,   98,   93,   96,
  /*    50 */    81,   70,   68,   98,   98,   98,   59,
 };
-#define YY_SZ_ACTTAB (sizeof(yy_action)/sizeof(yy_action[0]))
+#define YY_SZ_ACTTAB int(sizeof(yy_action)/sizeof(yy_action[0]))
 
 /* The next table maps tokens into fallback tokens.  If a construct
 ** like the following:
@@ -335,7 +339,7 @@ static const char *const yyRuleName[] = {
 */
 const char *mdbParserTokenName(int tokenType){
 #ifndef NDEBUG
-  if( tokenType>0 && tokenType<(sizeof(yyTokenName)/sizeof(yyTokenName[0])) ){
+  if( tokenType>0 && tokenType<int(sizeof(yyTokenName)/sizeof(yyTokenName[0])) ){
     return yyTokenName[tokenType];
   }else{
     return "Unknown";
@@ -619,7 +623,7 @@ static void yy_reduce(
   yymsp = &yypParser->yystack[yypParser->yyidx];
 #ifndef NDEBUG
   if( yyTraceFILE && yyruleno>=0 
-        && yyruleno<sizeof(yyRuleName)/sizeof(yyRuleName[0]) ){
+        && yyruleno<int(sizeof(yyRuleName)/sizeof(yyRuleName[0])) ){
     fprintf(yyTraceFILE, "%sReduce [%s].\n", yyTracePrompt,
       yyRuleName[yyruleno]);
   }
@@ -646,6 +650,11 @@ static void yy_reduce(
   **  #line <lineno> <thisfile>
   **     break;
   */
+      case 6:
+#line 42 "/home/whisly/mdb/sqlparser/parser.y"
+{mdbBeginParse(pParse,0);}
+#line 658 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
       case 14:
       case 15:
       case 16:
@@ -653,27 +662,27 @@ static void yy_reduce(
       case 18:
       case 37:
       case 38:
-#line 55 "parser.y"
+#line 61 "/home/whisly/mdb/sqlparser/parser.y"
 {yygotominor.yy90=yymsp[0].minor.yy0;}
-#line 660 "parser.cpp"
+#line 669 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
       case 21:
       case 24:
       case 35:
       case 36:
-#line 72 "parser.y"
+#line 78 "/home/whisly/mdb/sqlparser/parser.y"
 {yygotominor.yy90=yymsp[0].minor.yy90;}
-#line 668 "parser.cpp"
+#line 677 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
       case 25:
-#line 81 "parser.y"
-{yygotominor.yy4=atoi(yymsp[0].minor.yy90.z);}
-#line 673 "parser.cpp"
+#line 87 "/home/whisly/mdb/sqlparser/parser.y"
+{yygotominor.yy4=atoi(reinterpret_cast<const char*>(yymsp[0].minor.yy90.z));}
+#line 682 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
       case 26:
-#line 82 "parser.y"
-{yygotominor.yy4=-atoi(yymsp[0].minor.yy90.z);}
-#line 678 "parser.cpp"
+#line 88 "/home/whisly/mdb/sqlparser/parser.y"
+{yygotominor.yy4=-atoi(reinterpret_cast<const char*>(yymsp[0].minor.yy90.z));}
+#line 687 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
   };
   yygoto = yyRuleInfo[yyruleno].lhs;
@@ -730,10 +739,10 @@ static void yy_syntax_error(
 ){
   mdbParserARG_FETCH;
 #define TOKEN (yyminor.yy0)
-#line 23 "parser.y"
+#line 27 "/home/whisly/mdb/sqlparser/parser.y"
 
 	printf("syntax error!\n");
-#line 739 "parser.cpp"
+#line 748 "/home/whisly/mdb/sqlparser/parser.cpp"
   mdbParserARG_STORE; /* Suppress warning about unused %extra_argument variable */
 }
 
