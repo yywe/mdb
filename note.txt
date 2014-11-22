@@ -10,8 +10,7 @@ But the most important things is to learn the interal principle of
 the database!
 
 To Do list:
-	1. finish the configuration module, use conf.ini.
+	1. design the table storage structure.
 	2. change and complete the leximal analysis and syntax analysis
-	   lexer.cpp & parser.y
-	3. implement the backend logic of the database.
-	    create table ....
+	   lexer.cpp & parser.y <mainly parser.y> 
+	   add the code for create table
