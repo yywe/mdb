@@ -11,7 +11,7 @@ LIB=-lpthread
 all:mdb 
 .PHONY: all
 
-OBJS= main.o sqlparser/parser.o util/trace.o  sqlparser/lexer.o  executor/exec.o sqlparser/parsefunc.o
+OBJS= main.o sqlparser/parser.o util/trace.o util/config.o  sqlparser/lexer.o  executor/exec.o sqlparser/parsefunc.o
 
 mdb: $(OBJS)
 	$(CC) $(CC_FLAG) $(LIB) -o $@ $(OBJS)
@@ -21,6 +21,9 @@ main.o: main.cpp mdbtype.h mdbproto.h util/trace.h
 
 
 util/trace.o:	util/trace.cpp util/trace.h
+	$(CC)  -c $(CC_FLAG) $< -o $@
+
+util/config.o:	util/config.cpp util/config.h util/trace.h
 	$(CC)  -c $(CC_FLAG) $< -o $@
 
 sqlparser/lexer.o:	sqlparser/lexer.cpp sqlparser/lexer.h sqlparser/parser.h mdbtype.h
