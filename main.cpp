@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "util/trace.h"
+#include "util/config.h"
 #include "executor/exec.h"
 #include "mdbtype.h"
 
@@ -93,8 +94,11 @@ int main(int argc,char **argv){
 	if((!conf_name.empty())&&*(conf_name.c_str())!='/'){
 		conf_name=cwd+"/"+conf_name;
 	}
+
 	Tracer::tracePrint(INFO,"configuration file name :%s",conf_name.c_str());
 	Tracer::tracePrint(INFO,"database directory :%s",dbname.c_str());
+	Config config(conf_name);
+
 	if(access(conf_name.c_str(),F_OK|R_OK)!=0){
 		Tracer::tracePrint(ERROR,"can not access configuration file:%s",conf_name.c_str());
 		exit(0);
@@ -130,7 +134,7 @@ int main(int argc,char **argv){
 	if(cmd!=NULL){
 			Executor ex;
 			ex.setQuery(cmd);
-			ex.setParsertf(cwd+"/parsetrace.txt");
+			ex.setParsertf(cwd+"/"+config.getConfValue("sqlparsetrace"));
 			ex.prepare();
 			return 0;
 	}
@@ -156,7 +160,7 @@ int main(int argc,char **argv){
 			printf("%s\n",inputline);
 			Executor ex;
 			ex.setQuery(inputline);
-			ex.setParsertf(cwd+"/parsetrace.txt");
+			ex.setParsertf(cwd+"/"+config.getConfValue("sqlparsetrace"));
 			ex.prepare();
 		}
 	
