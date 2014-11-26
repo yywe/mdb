@@ -33,6 +33,7 @@ int Executor::runParser(Parse *pParse,const char *sqlstr){
 	void *pEngine=mdbParserAlloc(malloc);
 
 	Lexer lexer(sqlstr);
+	pParse->lexer=&lexer;
 
 	while(!lexer.ifReachEnd()){
 		int flag=lexer.getNextToken();
@@ -46,18 +47,22 @@ int Executor::runParser(Parse *pParse,const char *sqlstr){
 			else{
 				printf("Illegal char:");
 			}
+	
+			/* for test ,output the token string */
 			char *tmp=(char *)malloc(lexer.getTkLen()+1);
 			memset(tmp,0,lexer.getTkLen()+1);
 			memcpy(tmp,lexer.getSqlStr()+lexer.getOffset(),lexer.getTkLen());
-
 			printf("%s\n",tmp);
+			free(tmp);
 
 			Token t;
-			t.z=reinterpret_cast<const unsigned char *>(tmp);
+			//t.z=reinterpret_cast<const unsigned char *>(tmp);
+			t.z=lexer.getSqlStr()+lexer.getOffset();
 			t.dyn=0;
 			t.n=lexer.getTkLen();
 			int type=lexer.getTkType();
-			free(tmp);
+
+
 			switch(type){
 				case TK_SPACE:
 				case TK_COMMENT:

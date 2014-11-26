@@ -44,7 +44,9 @@ explain ::= . {mdbBeginParse(pParse,0);}
 ////////////////////////Create table syntax///////////////////////////////////
 cmd ::=create_table create_table_args.
 
-create_table ::=CREATE(X) TABLE nm(Y).
+create_table ::=CREATE TABLE nm(X).{
+	mdbStartTable(pParse,&X);
+}
 
 
 create_table_args ::=LP columnlist conslist_opt(X) RP(Y).
@@ -55,8 +57,10 @@ columnlist ::=column.
 
 column(A) ::=columnid(X) type carglist.
 
-columnid(A) ::=nm(X).
-
+columnid(A) ::=nm(X).{
+	mdbAddColumn(pParse,&X);
+	A=X;
+}
 %type id {Token}
 id(A) ::= ID(X). {A=X;}
 
@@ -73,12 +77,26 @@ nm(A) ::= STRING(X). {A=X;}
 %type typetoken {Token}
 
 type ::=.
-type ::=typetoken(X). 
+type ::=typetoken(X). {
+	mdbAddColumnType(pParse,&X);
+}
 
 typetoken(A) ::=typename(X). {A=X;}
-typetoken(A) ::=typename(X) LP signed RP(Y).
+typetoken(A) ::=typename(X) LP signed RP(Y).{
+	A.z=X.z;
+	A.n=&Y.z[Y.n]-X.z;
+}
 
-typetoken(A) ::=typename(X) LP signed COMMA signed RP(Y).
+typetoken(A) ::=typename(X) LP signed COMMA signed RP(Y).{
+	A.z=X.z;
+	A.n=&Y.z[Y.n]-X.z;
+	/*
+	char *tmp=(char *)malloc(A.n+1);
+	bzero(tmp,A.n+1);
+	strncpy(tmp,A.z,A.n);
+	printf("typetoken:%s\n",tmp);
+	*/
+}
 
 %type typename {Token}
 typename(A) ::=ids(X). {A=X;}
@@ -87,6 +105,8 @@ typename(A) ::=ids(X). {A=X;}
 signed(A) ::=plus_num(X). {A=atoi(reinterpret_cast<const char*>(X.z));}
 signed(A) ::=minus_num(X). {A=-atoi(reinterpret_cast<const char*>(X.z));}
 
+
+/*currently ,do not support expression and carglist and constriant */
 carglist ::=carglist carg.
 carglist ::=.
 carg ::=CONSTRAINT nm ccons.

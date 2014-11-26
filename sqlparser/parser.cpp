@@ -655,6 +655,21 @@ static void yy_reduce(
 {mdbBeginParse(pParse,0);}
 #line 658 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
+      case 8:
+#line 47 "/home/whisly/mdb/sqlparser/parser.y"
+{
+	mdbStartTable(pParse,&yymsp[0].minor.yy90);
+}
+#line 665 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
+      case 13:
+#line 60 "/home/whisly/mdb/sqlparser/parser.y"
+{
+	mdbAddColumn(pParse,&yymsp[0].minor.yy90);
+	yygotominor.yy90=yymsp[0].minor.yy90;
+}
+#line 673 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
       case 14:
       case 15:
       case 16:
@@ -662,27 +677,56 @@ static void yy_reduce(
       case 18:
       case 37:
       case 38:
-#line 61 "/home/whisly/mdb/sqlparser/parser.y"
+#line 65 "/home/whisly/mdb/sqlparser/parser.y"
 {yygotominor.yy90=yymsp[0].minor.yy0;}
-#line 669 "/home/whisly/mdb/sqlparser/parser.cpp"
+#line 684 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
+      case 20:
+#line 80 "/home/whisly/mdb/sqlparser/parser.y"
+{
+	mdbAddColumnType(pParse,&yymsp[0].minor.yy90);
+}
+#line 691 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
       case 21:
       case 24:
       case 35:
       case 36:
-#line 78 "/home/whisly/mdb/sqlparser/parser.y"
+#line 84 "/home/whisly/mdb/sqlparser/parser.y"
 {yygotominor.yy90=yymsp[0].minor.yy90;}
-#line 677 "/home/whisly/mdb/sqlparser/parser.cpp"
+#line 699 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
+      case 22:
+#line 85 "/home/whisly/mdb/sqlparser/parser.y"
+{
+	yygotominor.yy90.z=yymsp[-3].minor.yy90.z;
+	yygotominor.yy90.n=&yymsp[0].minor.yy0.z[yymsp[0].minor.yy0.n]-yymsp[-3].minor.yy90.z;
+}
+#line 707 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
+      case 23:
+#line 90 "/home/whisly/mdb/sqlparser/parser.y"
+{
+	yygotominor.yy90.z=yymsp[-5].minor.yy90.z;
+	yygotominor.yy90.n=&yymsp[0].minor.yy0.z[yymsp[0].minor.yy0.n]-yymsp[-5].minor.yy90.z;
+	/*
+	char *tmp=(char *)malloc(yygotominor.yy90.n+1);
+	bzero(tmp,yygotominor.yy90.n+1);
+	strncpy(tmp,yygotominor.yy90.z,yygotominor.yy90.n);
+	printf("typetoken:%s\n",tmp);
+	*/
+}
+#line 721 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
       case 25:
-#line 87 "/home/whisly/mdb/sqlparser/parser.y"
+#line 105 "/home/whisly/mdb/sqlparser/parser.y"
 {yygotominor.yy4=atoi(reinterpret_cast<const char*>(yymsp[0].minor.yy90.z));}
-#line 682 "/home/whisly/mdb/sqlparser/parser.cpp"
+#line 726 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
       case 26:
-#line 88 "/home/whisly/mdb/sqlparser/parser.y"
+#line 106 "/home/whisly/mdb/sqlparser/parser.y"
 {yygotominor.yy4=-atoi(reinterpret_cast<const char*>(yymsp[0].minor.yy90.z));}
-#line 687 "/home/whisly/mdb/sqlparser/parser.cpp"
+#line 731 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
   };
   yygoto = yyRuleInfo[yyruleno].lhs;
@@ -742,7 +786,7 @@ static void yy_syntax_error(
 #line 27 "/home/whisly/mdb/sqlparser/parser.y"
 
 	printf("syntax error!\n");
-#line 748 "/home/whisly/mdb/sqlparser/parser.cpp"
+#line 792 "/home/whisly/mdb/sqlparser/parser.cpp"
   mdbParserARG_STORE; /* Suppress warning about unused %extra_argument variable */
 }
 
