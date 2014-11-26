@@ -1,0 +1,139 @@
+TRACE-Input CREATE
+TRACE-Reduce [explain ::=].
+TRACE-Shift 4
+TRACE-Stack: explain
+TRACE-Shift 53
+TRACE-Stack: explain CREATE
+TRACE-Input TABLE
+TRACE-Shift 54
+TRACE-Stack: explain CREATE TABLE
+TRACE-Input ID
+TRACE-Shift 21
+TRACE-Stack: explain CREATE TABLE ID
+TRACE-Input LP
+TRACE-Reduce [nm ::= ID].
+TRACE-Shift 55
+TRACE-Stack: explain CREATE TABLE nm
+TRACE-Reduce [create_table ::= CREATE TABLE nm].
+TRACE-Shift 8
+TRACE-Stack: explain create_table
+TRACE-Shift 10
+TRACE-Stack: explain create_table LP
+TRACE-Input ID
+TRACE-Shift 21
+TRACE-Stack: explain create_table LP ID
+TRACE-Input ID
+TRACE-Reduce [nm ::= ID].
+TRACE-Shift 51
+TRACE-Stack: explain create_table LP nm
+TRACE-Reduce [columnid ::= nm].
+TRACE-Shift 16
+TRACE-Stack: explain create_table LP columnid
+TRACE-Shift 31
+TRACE-Stack: explain create_table LP columnid ID
+TRACE-Input COMMA
+TRACE-Reduce [ids ::= ID].
+TRACE-Shift 50
+TRACE-Stack: explain create_table LP columnid ids
+TRACE-Reduce [typename ::= ids].
+TRACE-Shift 34
+TRACE-Stack: explain create_table LP columnid typename
+TRACE-Reduce [typetoken ::= typename].
+TRACE-Shift 33
+TRACE-Stack: explain create_table LP columnid typetoken
+TRACE-Reduce [type ::= typetoken].
+TRACE-Shift 17
+TRACE-Stack: explain create_table LP columnid type
+TRACE-Reduce [carglist ::=].
+TRACE-Shift 18
+TRACE-Stack: explain create_table LP columnid type carglist
+TRACE-Reduce [column ::= columnid type carglist].
+TRACE-Shift 52
+TRACE-Stack: explain create_table LP column
+TRACE-Reduce [columnlist ::= column].
+TRACE-Shift 11
+TRACE-Stack: explain create_table LP columnlist
+TRACE-Shift 14
+TRACE-Stack: explain create_table LP columnlist COMMA
+TRACE-Input ID
+TRACE-Shift 21
+TRACE-Stack: explain create_table LP columnlist COMMA ID
+TRACE-Input ID
+TRACE-Reduce [nm ::= ID].
+TRACE-Shift 51
+TRACE-Stack: explain create_table LP columnlist COMMA nm
+TRACE-Reduce [columnid ::= nm].
+TRACE-Shift 16
+TRACE-Stack: explain create_table LP columnlist COMMA columnid
+TRACE-Shift 31
+TRACE-Stack: explain create_table LP columnlist COMMA columnid ID
+TRACE-Input LP
+TRACE-Reduce [ids ::= ID].
+TRACE-Shift 50
+TRACE-Stack: explain create_table LP columnlist COMMA columnid ids
+TRACE-Reduce [typename ::= ids].
+TRACE-Shift 34
+TRACE-Stack: explain create_table LP columnlist COMMA columnid typename
+TRACE-Shift 35
+TRACE-Stack: explain create_table LP columnlist COMMA columnid typename LP
+TRACE-Input INTEGER
+TRACE-Reduce [plus_opt ::=].
+TRACE-Shift 43
+TRACE-Stack: explain create_table LP columnlist COMMA columnid typename LP plus_opt
+TRACE-Shift 45
+TRACE-Stack: explain create_table LP columnlist COMMA columnid typename LP plus_opt INTEGER
+TRACE-Input RP
+TRACE-Reduce [number ::= INTEGER].
+TRACE-Shift 44
+TRACE-Stack: explain create_table LP columnlist COMMA columnid typename LP plus_opt number
+TRACE-Reduce [plus_num ::= plus_opt number].
+TRACE-Shift 41
+TRACE-Stack: explain create_table LP columnlist COMMA columnid typename LP plus_num
+TRACE-Reduce [signed ::= plus_num].
+TRACE-Shift 36
+TRACE-Stack: explain create_table LP columnlist COMMA columnid typename LP signed
+TRACE-Shift 37
+TRACE-Stack: explain create_table LP columnlist COMMA columnid typename LP signed RP
+TRACE-Input RP
+TRACE-Reduce [typetoken ::= typename LP signed RP].
+TRACE-Shift 33
+TRACE-Stack: explain create_table LP columnlist COMMA columnid typetoken
+TRACE-Reduce [type ::= typetoken].
+TRACE-Shift 17
+TRACE-Stack: explain create_table LP columnlist COMMA columnid type
+TRACE-Reduce [carglist ::=].
+TRACE-Shift 18
+TRACE-Stack: explain create_table LP columnlist COMMA columnid type carglist
+TRACE-Reduce [column ::= columnid type carglist].
+TRACE-Shift 15
+TRACE-Stack: explain create_table LP columnlist COMMA column
+TRACE-Reduce [columnlist ::= columnlist COMMA column].
+TRACE-Shift 11
+TRACE-Stack: explain create_table LP columnlist
+TRACE-Reduce [conslist_opt ::=].
+TRACE-Shift 12
+TRACE-Stack: explain create_table LP columnlist conslist_opt
+TRACE-Shift 13
+TRACE-Stack: explain create_table LP columnlist conslist_opt RP
+TRACE-Input SEMI
+TRACE-Reduce [create_table_args ::= LP columnlist conslist_opt RP].
+TRACE-Shift 9
+TRACE-Stack: explain create_table create_table_args
+TRACE-Reduce [cmd ::= create_table create_table_args].
+TRACE-Shift 7
+TRACE-Stack: explain cmd
+TRACE-Reduce [cmdx ::= cmd].
+TRACE-Shift 5
+TRACE-Stack: explain cmdx
+TRACE-Shift 6
+TRACE-Stack: explain cmdx SEMI
+TRACE-Input $
+TRACE-Reduce [ecmd ::= explain cmdx SEMI].
+TRACE-Shift 56
+TRACE-Stack: ecmd
+TRACE-Reduce [cmdlist ::= ecmd].
+TRACE-Shift 1
+TRACE-Stack: cmdlist
+TRACE-Reduce [input ::= cmdlist].
+TRACE-Accept!
+TRACE-Popping $
