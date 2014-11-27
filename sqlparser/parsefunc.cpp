@@ -8,9 +8,33 @@ char *getNameFromToken(Token *t){
 	strncpy(pn,t->z,t->n);
 	return pn;
 }
+
+void freeTblRes(Table *ptbl){
+	if(ptbl){
+		if(ptbl->zName){
+			free(ptbl->zName);
+		}
+		if(ptbl->aCol){
+			int i;
+			for(i=0;i<ptbl->nCol;i++){
+				Column *pc=&ptbl->aCol[i];
+				if(pc&&pc->colname){
+					free(pc->colname);
+				}
+				if(pc&&pc->zType){
+					free(pc->zType);
+				}
+			}
+			free(ptbl->aCol);
+		}
+		free(ptbl);
+	}
+}
+
 void mdbBeginParse(Parse  *pParse,int explainFlag){
     //Tracer::tracePrint(INFO,"parse query:\t %s\n",pParse->zSql);
 	pParse->explain=explainFlag;
+	pParse->errorcode=0;
 }
 
 
@@ -75,4 +99,11 @@ void mdbAddColumnType(Parse *pParse,Token *pType){
 	if(pCol->zType) free(pCol->zType);
 	pCol->zType=getNameFromToken(pType);
 
+}
+void mdbEndTable(Parse *pParse){
+	if(pParse->errorcode!=0){
+		freeTblRes(pParse->newtbl);
+		pParse->newtbl=NULL;
+		return ;
+	}
 }

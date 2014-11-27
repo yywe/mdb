@@ -49,8 +49,10 @@ create_table ::=CREATE TABLE nm(X).{
 }
 
 
-create_table_args ::=LP columnlist conslist_opt(X) RP(Y).
-
+/* currently not support conslist_opt */
+create_table_args ::=LP columnlist conslist_opt RP.{
+	mdbEndTable(pParse);
+}
 
 columnlist ::=columnlist COMMA column.
 columnlist ::=column.
