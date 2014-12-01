@@ -39,7 +39,7 @@ void mdbBeginParse(Parse  *pParse,int explainFlag){
 
 
  void mdbStartTable(Parse *pParse,Token *tblname){
-    Tracer::tracePrint(INFO,"Enter Create table:\t %s\n",pParse->zSql);
+//    Tracer::tracePrint(INFO,"%s:\tEnter Create table:\t %s\n",__FILE__,pParse->zSql);
 	Table *ptbl=(Table *)malloc(sizeof(Table));
 	if(!ptbl){
 		pParse->errorcode=101;
@@ -106,4 +106,5 @@ void mdbEndTable(Parse *pParse){
 		pParse->newtbl=NULL;
 		return ;
 	}
+	pParse->newtbl->creatsql=pParse->zSql;
 }

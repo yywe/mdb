@@ -19,9 +19,11 @@ extern "C" {
 using std::string;
 class Executor{
 	public:
-		Executor(string str):querystr(str){};
-		Executor(){};
-
+		Executor(string str):querystr(str){
+		}
+		Executor(){
+			querystr="";
+		};
 		void setParsertf(string filename){
 			parsertf=filename;
 		}
@@ -37,10 +39,14 @@ class Executor{
 
 		void execute();
 		int prepare();
-		int runParser(Parse *pParse,const char *sqlstr);
+		int runParser(const char *sqlstr);
+		Parse *getParser(){
+			return &mdbParser;
+		}
 	private:
 		string querystr;
 		string parsertf;
+		Parse mdbParser;
 
 };
 

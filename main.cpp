@@ -135,7 +135,7 @@ int main(int argc,char **argv){
 			Executor ex;
 			ex.setQuery(cmd);
 			ex.setParsertf(cwd+"/"+config.getConfValue("sqlparsetrace"));
-			ex.prepare();
+			ex.execute();
 			return 0;
 	}
 
@@ -157,11 +157,11 @@ int main(int argc,char **argv){
 			inputline[len-1]=0;
 		}
 		if(quitflag!=1){
-			printf("%s\n",inputline);
+		//	printf("%s\n",inputline);
 			Executor ex;
 			ex.setQuery(inputline);
 			ex.setParsertf(cwd+"/"+config.getConfValue("sqlparsetrace"));
-			ex.prepare();
+			ex.execute();
 		}
 	
 

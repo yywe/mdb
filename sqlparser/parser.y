@@ -46,6 +46,7 @@ cmd ::=create_table create_table_args.
 
 create_table ::=CREATE TABLE nm(X).{
 	mdbStartTable(pParse,&X);
+	pParse->stype=CRT;
 }
 
 

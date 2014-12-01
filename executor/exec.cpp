@@ -1,15 +1,16 @@
 #include "exec.h"
 #include "../util/trace.h"
-
+#include "../storage/handler.h"
 
 int Executor::prepare(){
-	Parse mdbParser;
-	memset(&mdbParser,0,sizeof(mdbParser));
-
-	runParser(&mdbParser,querystr.c_str());
+	runParser(querystr.c_str());
 	return 0;
 }
-int Executor::runParser(Parse *pParse,const char *sqlstr){
+int Executor::runParser(const char *sqlstr){
+	memset(&mdbParser,0,sizeof(mdbParser));
+
+	Parse *pParse=&mdbParser;
+
 	assert(pParse!=NULL);
 	pParse->zSql=sqlstr;
 
@@ -38,21 +39,21 @@ int Executor::runParser(Parse *pParse,const char *sqlstr){
 	while(!lexer.ifReachEnd()){
 		int flag=lexer.getNextToken();
 		if(flag==1){
-			printf("Reach query end!\n");
+//			printf("Reach query end!\n");
 		}
 		else{
 			if(flag==0){
-				printf("get Token:");
+//				printf("get Token:");
 			}
 			else{
-				printf("Illegal char:");
+//				printf("Illegal char:");
 			}
 	
 			/* for test ,output the token string */
 			char *tmp=(char *)malloc(lexer.getTkLen()+1);
 			memset(tmp,0,lexer.getTkLen()+1);
 			memcpy(tmp,lexer.getSqlStr()+lexer.getOffset(),lexer.getTkLen());
-			printf("%s\n",tmp);
+//			printf("%s\n",tmp);
 			free(tmp);
 
 			Token t;
@@ -93,6 +94,17 @@ int Executor::runParser(Parse *pParse,const char *sqlstr){
 }
 void Executor::execute(){
 	prepare();
+	Handler hdl;
+	if(mdbParser.stype==NOP){
+			Tracer::tracePrint(WARNING,"nop  operation !");
+	}
+	else if(mdbParser.stype==CRT){
+		hdl.createTbl(mdbParser.newtbl);
+	}
+	else{
+		Tracer::tracePrint(WARNING,"nop  operation !");
+	}
+
 	return;
 
 }

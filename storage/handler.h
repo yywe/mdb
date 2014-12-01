@@ -6,6 +6,7 @@
 #ifdef __cpluscplus
 extern "C" {
 #endif
+#include <stdio.h>
 #include <unistd.h>
 #include <assert.h>
 #include <ctype.h>

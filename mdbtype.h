@@ -8,6 +8,13 @@ extern "C" {
 #endif
 
 #define MAXLINESIZE 4096
+#define TABLEHEADER 1024
+
+#define MAGICSTR "MDB VERSION 0.1"
+
+typedef enum SqlType{
+	NOP=0,CRT,SEL,INST
+}SqlType;
 
 typedef unsigned char u8;
 
@@ -37,7 +44,7 @@ typedef struct Column{
 
 typedef struct Table{
 	char *zName;
-	char *creatsql;
+	const char *creatsql;
 	int nCol;
 	Column *aCol;
 	u8 hasPrimKey;
@@ -50,6 +57,8 @@ typedef struct Parse{
 	int explain;
 	int errorcode;
 	char errmsg[MAXLINESIZE];
+
+	SqlType stype;
 
 	/* meet create table */
 	Table *newtbl;
