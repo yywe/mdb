@@ -33,3 +33,25 @@ int Handler::createTbl(Table *ptbl){
 	
 	return 0;
 }
+int Handler::dropTbl(Table *ptbl){
+
+	char datfile[MAXLINESIZE];
+	memset(datfile,0,MAXLINESIZE);
+	getcwd(datfile,MAXLINESIZE);
+	strcat(datfile,"/");
+	strcat(datfile,ptbl->zName);
+	strcat(datfile,".dat");
+	if(access(datfile,F_OK)!=0){
+		printf("the data table %s is does not exists!\n",ptbl->zName);
+		return -1;
+	}
+	else{
+		/* drop the data file */
+		int ret=unlink(datfile);
+		if(ret!=0){
+			printf("drop table %s failed!\n",ptbl->zName);
+		}
+	}
+
+	return 0;
+}

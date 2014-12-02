@@ -28,6 +28,9 @@ typedef enum tracelevel{
 }
 #endif
 
+#include <map>
+#include "../mdbtype.h"
+
 class Tracer{
 public:
     Tracer(std::string tf):tracefile(tf){};
@@ -36,6 +39,7 @@ public:
     }
     void TraceInfo(tracelevel level,const char *fmt,...);
 	static void tracePrint(tracelevel level,const char *fmt,...);
+	static void printTbls(std::map<std::string,Table *> tbls);
 private:
     std::string tracefile;
 };

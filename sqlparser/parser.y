@@ -122,6 +122,12 @@ onconf(A) ::=.
 
 
 conslist_opt(A) ::=.
+/////////////////////The drop table command///////////////////////////////
+
+cmd ::=DROP TABLE nm(X).{
+	pParse->stype=DROP;
+	mdbDropTable(pParse,&X);
+}
 /////////////////the pragma command/////////////////////////
 
 plus_num(A) ::=plus_opt number(X). {A=X;}

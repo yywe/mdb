@@ -7,6 +7,7 @@ std::map<std::string,int> initKeyword(){
 	std::map<std::string,int> m;
 	m["CREATE"]=TK_CREATE;
 	m["TABLE"]=TK_TABLE;
+	m["DROP"]=TK_DROP;
 
 	return m;
 }

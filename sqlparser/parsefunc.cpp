@@ -108,3 +108,21 @@ void mdbEndTable(Parse *pParse){
 	}
 	pParse->newtbl->creatsql=pParse->zSql;
 }
+void mdbDropTable(Parse *pParse,Token *tn){
+	if(pParse->errorcode!=0){
+		Tracer::tracePrint(ERROR,"%s:\tdrop table error",__FILE__);
+		return ;
+	}
+	Table *ptbl=(Table *)malloc(sizeof(Table));
+	if(!ptbl){
+		pParse->errorcode=101;
+		strcpy(pParse->errmsg,"allocate memory failed\n");
+	}
+	bzero(ptbl,sizeof(Table));
+	ptbl->zName=(char *)malloc(tn->n+1);
+	assert(ptbl->zName);
+	bzero(ptbl->zName,tn->n+1);
+	strncpy(ptbl->zName,(const char *)tn->z,tn->n);
+	pParse->newtbl=ptbl;
+	return ;
+}

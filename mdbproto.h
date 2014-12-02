@@ -17,7 +17,9 @@ void mdbStartTable(Parse *,Token *);
 void mdbAddColumn(Parse *,Token *);
 void mdbAddColumnType(Parse *,Token *);
 void mdbEndTable(Parse *);
+void mdbDropTable(Parse *pParse,Token *tn);
 
+void freeTblRes(Table *ptbl);
 
 #ifdef __cplusplus
 }

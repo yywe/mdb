@@ -29,5 +29,6 @@ class Handler{
 
 		}
 		virtual int createTbl(Table *ptbl);
+		virtual int dropTbl(Table *ptbl);
 };
 #endif

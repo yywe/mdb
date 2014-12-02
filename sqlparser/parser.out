@@ -5,64 +5,64 @@
             To   (state  0) cmdlist ::= * cmdlist ecmd
             To   (state  0) cmdlist ::= * ecmd
           cmdlist ::= * cmdlist ecmd
-            [$ SEMI CREATE]
+            [$ SEMI CREATE DROP]
             To   (state  1) cmdlist ::= cmdlist * ecmd
           cmdlist ::= * ecmd
-            [$ SEMI CREATE]
-            To   (state 56) cmdlist ::= ecmd *
+            [$ SEMI CREATE DROP]
+            To   (state 59) cmdlist ::= ecmd *
             To   (state  0) ecmd ::= * SEMI
             To   (state  0) ecmd ::= * explain cmdx SEMI
           ecmd ::= * SEMI
-            [$ SEMI CREATE]
+            [$ SEMI CREATE DROP]
             To   (state  3) ecmd ::= SEMI *
           ecmd ::= * explain cmdx SEMI
-            [$ SEMI CREATE]
+            [$ SEMI CREATE DROP]
             To   (state  4) ecmd ::= explain * cmdx SEMI
       (6) explain ::= *
-            [CREATE]
+            [CREATE DROP]
 
                           SEMI shift  3
-                        CREATE reduce 6
                          input accept
                        cmdlist shift  1
-                          ecmd shift  56
+                          ecmd shift  59
                        explain shift  4
+                     {default} reduce 6
 
 State 1:
       (0) input ::= cmdlist *
             [$]
             From (state  0) input ::= * cmdlist
           cmdlist ::= cmdlist * ecmd
-            [$ SEMI CREATE]
+            [$ SEMI CREATE DROP]
             To   (state  2) cmdlist ::= cmdlist ecmd *
             To   (state  1) ecmd ::= * SEMI
             To   (state  1) ecmd ::= * explain cmdx SEMI
             From (state  0) cmdlist ::= * cmdlist ecmd
           ecmd ::= * SEMI
-            [$ SEMI CREATE]
+            [$ SEMI CREATE DROP]
             To   (state  3) ecmd ::= SEMI *
           ecmd ::= * explain cmdx SEMI
-            [$ SEMI CREATE]
+            [$ SEMI CREATE DROP]
             To   (state  4) ecmd ::= explain * cmdx SEMI
       (6) explain ::= *
-            [CREATE]
+            [CREATE DROP]
 
                              $ reduce 0
                           SEMI shift  3
-                        CREATE reduce 6
                           ecmd shift  2
                        explain shift  4
+                     {default} reduce 6
 
 State 2:
       (1) cmdlist ::= cmdlist ecmd *
-            [$ SEMI CREATE]
+            [$ SEMI CREATE DROP]
             From (state  1) cmdlist ::= cmdlist * ecmd
 
                      {default} reduce 1
 
 State 3:
       (3) ecmd ::= SEMI *
-            [$ SEMI CREATE]
+            [$ SEMI CREATE DROP]
             From (state  0) ecmd ::= * SEMI
             From (state  1) ecmd ::= * SEMI
 
@@ -70,7 +70,7 @@ State 3:
 
 State 4:
           ecmd ::= explain * cmdx SEMI
-            [$ SEMI CREATE]
+            [$ SEMI CREATE DROP]
             To   (state  5) ecmd ::= explain cmdx * SEMI
             From (state  0) ecmd ::= * explain cmdx SEMI
             From (state  1) ecmd ::= * explain cmdx SEMI
@@ -78,21 +78,26 @@ State 4:
             [SEMI]
             To   (state  7) cmdx ::= cmd *
             To   (state  4) cmd ::= * create_table create_table_args
+            To   (state  4) cmd ::= * DROP TABLE nm
           cmd ::= * create_table create_table_args
             [SEMI]
             To   (state  8) cmd ::= create_table * create_table_args
           create_table ::= * CREATE TABLE nm
             [LP]
             To   (state 53) create_table ::= CREATE * TABLE nm
+          cmd ::= * DROP TABLE nm
+            [SEMI]
+            To   (state 56) cmd ::= DROP * TABLE nm
 
                         CREATE shift  53
+                          DROP shift  56
                           cmdx shift  5
                            cmd shift  7
                   create_table shift  8
 
 State 5:
           ecmd ::= explain cmdx * SEMI
-            [$ SEMI CREATE]
+            [$ SEMI CREATE DROP]
             To   (state  6) ecmd ::= explain cmdx SEMI *
             From (state  4) ecmd ::= explain * cmdx SEMI
 
@@ -100,7 +105,7 @@ State 5:
 
 State 6:
       (4) ecmd ::= explain cmdx SEMI *
-            [$ SEMI CREATE]
+            [$ SEMI CREATE DROP]
             From (state  5) ecmd ::= explain cmdx * SEMI
 
                      {default} reduce 4
@@ -352,7 +357,8 @@ State 20:
 
 State 21:
      (17) nm ::= ID *
-            [LP RP COMMA ID STRING CONSTRAINT DEFAULT NULL]
+            [SEMI LP RP COMMA ID STRING CONSTRAINT DEFAULT NULL]
+            From (state 57) nm ::= * ID
             From (state 54) nm ::= * ID
             From (state 10) nm ::= * ID
             From (state 14) nm ::= * ID
@@ -362,7 +368,8 @@ State 21:
 
 State 22:
      (18) nm ::= STRING *
-            [LP RP COMMA ID STRING CONSTRAINT DEFAULT NULL]
+            [SEMI LP RP COMMA ID STRING CONSTRAINT DEFAULT NULL]
+            From (state 57) nm ::= * STRING
             From (state 54) nm ::= * STRING
             From (state 10) nm ::= * STRING
             From (state 14) nm ::= * STRING
@@ -507,7 +514,7 @@ State 35:
           plus_opt ::= * PLUS
             [INTEGER FLOAT]
             To   (state 49) plus_opt ::= PLUS *
-     (40) plus_opt ::= *
+     (41) plus_opt ::= *
             [INTEGER FLOAT]
 
                          MINUS shift  47
@@ -516,7 +523,7 @@ State 35:
                       plus_num shift  41
                      minus_num shift  42
                       plus_opt shift  43
-                     {default} reduce 40
+                     {default} reduce 41
 
 State 36:
           typetoken ::= typename LP signed * RP
@@ -560,7 +567,7 @@ State 38:
           plus_opt ::= * PLUS
             [INTEGER FLOAT]
             To   (state 49) plus_opt ::= PLUS *
-     (40) plus_opt ::= *
+     (41) plus_opt ::= *
             [INTEGER FLOAT]
 
                          MINUS shift  47
@@ -569,7 +576,7 @@ State 38:
                       plus_num shift  41
                      minus_num shift  42
                       plus_opt shift  43
-                     {default} reduce 40
+                     {default} reduce 41
 
 State 39:
           typetoken ::= typename LP signed COMMA signed * RP
@@ -622,27 +629,27 @@ State 43:
                         number shift  44
 
 State 44:
-     (35) plus_num ::= plus_opt number *
+     (36) plus_num ::= plus_opt number *
             [RP COMMA]
             From (state 43) plus_num ::= plus_opt * number
 
-                     {default} reduce 35
+                     {default} reduce 36
 
 State 45:
-     (37) number ::= INTEGER *
+     (38) number ::= INTEGER *
             [RP COMMA]
             From (state 47) number ::= * INTEGER
             From (state 43) number ::= * INTEGER
 
-                     {default} reduce 37
+                     {default} reduce 38
 
 State 46:
-     (38) number ::= FLOAT *
+     (39) number ::= FLOAT *
             [RP COMMA]
             From (state 47) number ::= * FLOAT
             From (state 43) number ::= * FLOAT
 
-                     {default} reduce 38
+                     {default} reduce 39
 
 State 47:
           minus_num ::= MINUS * number
@@ -664,19 +671,19 @@ State 47:
                         number shift  48
 
 State 48:
-     (36) minus_num ::= MINUS number *
+     (37) minus_num ::= MINUS number *
             [RP COMMA]
             From (state 47) minus_num ::= MINUS * number
 
-                     {default} reduce 36
+                     {default} reduce 37
 
 State 49:
-     (39) plus_opt ::= PLUS *
+     (40) plus_opt ::= PLUS *
             [INTEGER FLOAT]
             From (state 35) plus_opt ::= * PLUS
             From (state 38) plus_opt ::= * PLUS
 
-                     {default} reduce 39
+                     {default} reduce 40
 
 State 50:
      (24) typename ::= ids *
@@ -734,8 +741,41 @@ State 55:
                             LP reduce 8
 
 State 56:
+          cmd ::= DROP * TABLE nm
+            [SEMI]
+            To   (state 57) cmd ::= DROP TABLE * nm
+            From (state  4) cmd ::= * DROP TABLE nm
+
+                         TABLE shift  57
+
+State 57:
+          nm ::= * ID
+            [SEMI]
+            To   (state 21) nm ::= ID *
+          nm ::= * STRING
+            [SEMI]
+            To   (state 22) nm ::= STRING *
+          cmd ::= DROP TABLE * nm
+            [SEMI]
+            To   (state 58) cmd ::= DROP TABLE nm *
+            To   (state 57) nm ::= * ID
+            To   (state 57) nm ::= * STRING
+            From (state 56) cmd ::= DROP * TABLE nm
+
+                            ID shift  21
+                        STRING shift  22
+                            nm shift  58
+
+State 58:
+     (35) cmd ::= DROP TABLE nm *
+            [SEMI]
+            From (state 57) cmd ::= DROP TABLE * nm
+
+                          SEMI reduce 35
+
+State 59:
       (2) cmdlist ::= ecmd *
-            [$ SEMI CREATE]
+            [$ SEMI CREATE DROP]
             From (state  0) cmdlist ::= * ecmd
 
                      {default} reduce 2

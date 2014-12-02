@@ -86,3 +86,19 @@ void Tracer::TraceInfo(tracelevel level,const char *fmt,...){
     fclose(fout);
   }
 }
+void Tracer::printTbls(std::map<std::string,Table *> tbls){
+	std::map<std::string,Table *>::iterator iter;
+	for(iter=tbls.begin();iter!=tbls.end();iter++){
+		std::string tblname=iter->first;
+		printf("table name:%s\n",tblname.c_str());
+		
+		Table *pt=iter->second;
+		if(pt){
+			int i;
+			for(i=0;i<pt->nCol;i++){
+				Column *pc=&pt->aCol[i];
+				printf("column %s,type %s\n",pc->colname,pc->zType);
+			}
+		}
+	}
+}

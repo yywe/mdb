@@ -13,7 +13,7 @@ extern "C" {
 #define MAGICSTR "MDB VERSION 0.1"
 
 typedef enum SqlType{
-	NOP=0,CRT,SEL,INST
+	NOP=0,CRT,DROP,INSERT,SEL
 }SqlType;
 
 typedef unsigned char u8;

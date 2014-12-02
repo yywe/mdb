@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <map>
 #include "util/trace.h"
 #include "util/config.h"
 #include "executor/exec.h"
@@ -27,6 +28,7 @@ std::string conf_name="conf.ini";
 std::string dbname="data";
 std::string cwd="";
 std::string prompt="mdb#";
+std::map<string,Table *> tblstruct;
 
 /*get the current working directory */
 std::string mdbGetCwd(){
@@ -136,6 +138,7 @@ int main(int argc,char **argv){
 			ex.setQuery(cmd);
 			ex.setParsertf(cwd+"/"+config.getConfValue("sqlparsetrace"));
 			ex.execute();
+		//	Tracer::printTbls(tblstruct);
 			return 0;
 	}
 

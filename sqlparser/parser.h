@@ -19,7 +19,8 @@
 #define TK_CONSTRAINT                     19
 #define TK_DEFAULT                        20
 #define TK_NULL                           21
-#define TK_MINUS                          22
-#define TK_INTEGER                        23
-#define TK_FLOAT                          24
-#define TK_PLUS                           25
+#define TK_DROP                           22
+#define TK_MINUS                          23
+#define TK_INTEGER                        24
+#define TK_FLOAT                          25
+#define TK_PLUS                           26

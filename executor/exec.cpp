@@ -1,6 +1,8 @@
 #include "exec.h"
+#include "../mdbproto.h"
 #include "../util/trace.h"
 #include "../storage/handler.h"
+#include <map>
 
 int Executor::prepare(){
 	runParser(querystr.c_str());
@@ -100,6 +102,21 @@ void Executor::execute(){
 	}
 	else if(mdbParser.stype==CRT){
 		hdl.createTbl(mdbParser.newtbl);
+		/* definition in main.cpp */
+		extern std::map<std::string,Table *> tblstruct;
+		/* add to the table struct */
+		tblstruct.insert(std::pair<string,Table *>((mdbParser.newtbl)->zName,mdbParser.newtbl));
+	}
+	else if(mdbParser.stype==DROP){
+		hdl.dropTbl(mdbParser.newtbl);
+		printf("Drop table %s succeed!\n",mdbParser.newtbl->zName);
+		extern std::map<std::string,Table *> tblstruct;
+		std::map<std::string,Table *>::iterator iter;
+		iter=tblstruct.find(mdbParser.newtbl->zName);
+		if(iter!=tblstruct.end()){
+			freeTblRes(iter->second);
+			tblstruct.erase(iter);
+		}
 	}
 	else{
 		Tracer::tracePrint(WARNING,"nop  operation !");
