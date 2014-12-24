@@ -54,6 +54,7 @@ clean:
 	rm util/*.o
 	rm executor/*.o
 	rm sqlparser/*.o
+	mv sqlparser/parser.cpp sqlparser/parser.cpp.bak
 	rm storage/*.o
 	rm mdb
 

@@ -8,7 +8,9 @@ std::map<std::string,int> initKeyword(){
 	m["CREATE"]=TK_CREATE;
 	m["TABLE"]=TK_TABLE;
 	m["DROP"]=TK_DROP;
-
+	m["INSERT"]=TK_INSERT;
+	m["INTO"]=TK_INTO;
+	m["VALUES"]=TK_VALUES;
 	return m;
 }
 
@@ -132,6 +134,22 @@ int Lexer::getNextToken(){
 			tk_type=TK_COMMA;
 			tk_len=1;
 			return 0;
+		}
+		case '`':
+		case '\'':
+		case '"':
+		{
+			int delim=*substr;
+			for(i=1;(c=*(substr+i))!=0;i++){
+				if(c==delim){
+					break;
+				}
+			}
+			if(c) i++;
+			tk_type=TK_STRING;
+			tk_len=i;
+			return 0;
+
 		}
 		case '0': case '1': case '2': case '3': case '4': case '5': case '6':
 		case '7': case '8': case '9':

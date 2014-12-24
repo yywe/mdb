@@ -32,6 +32,29 @@ typedef struct Expr{
 	Token span;
 }Expr;
 
+typedef struct IdList{
+	struct IdList_item{
+		char *zName; /*name of the item */
+		int idx; /* index of the column */
+	}*a;
+	int nId;
+	int nAlloc;
+
+}IdList;
+
+
+typedef struct ExprList_item{
+	Expr *pExpr;
+	char *zName;
+	u8 done;
+}ExprList_item;
+
+typedef struct ExprList{
+	int nExpr;
+	int nAlloc;
+	ExprList_item *a;
+}ExprList;
+
 typedef struct Column{
 	char *colname;
 	char *zType;

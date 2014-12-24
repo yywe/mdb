@@ -69,24 +69,27 @@ extern "C" {
 **                       defined, then do no error processing.
 */
 #define YYCODETYPE unsigned char
-#define YYNOCODE 56
+#define YYNOCODE 64
 #define YYACTIONTYPE unsigned char
 #define mdbParserTOKENTYPE Token
 typedef union {
   mdbParserTOKENTYPE yy0;
-  int yy42;
-  Token yy78;
-  int yy111;
+  int yy4;
+  IdList * yy10;
+  ExprList* yy70;
+  Expr * yy74;
+  Token yy126;
+  int yy127;
 } YYMINORTYPE;
 #define YYSTACKDEPTH 100
 #define mdbParserARG_SDECL Parse *pParse;
 #define mdbParserARG_PDECL ,Parse *pParse
 #define mdbParserARG_FETCH Parse *pParse = yypParser->pParse
 #define mdbParserARG_STORE yypParser->pParse = pParse
-#define YYNSTATE 60
-#define YYNRULE 42
-#define YYERRORSYMBOL 27
-#define YYERRSYMDT yy111
+#define YYNSTATE 86
+#define YYNRULE 56
+#define YYERRORSYMBOL 30
+#define YYERRSYMDT yy127
 #define YY_NO_ACTION      (YYNSTATE+YYNRULE+2)
 #define YY_ACCEPT_ACTION  (YYNSTATE+YYNRULE+1)
 #define YY_ERROR_ACTION   (YYNSTATE+YYNRULE)
@@ -139,50 +142,65 @@ typedef union {
 **  yy_default[]       Default action for each state.
 */
 static const YYACTIONTYPE yy_action[] = {
- /*     0 */   103,    1,   59,    4,   51,   11,   17,   52,   16,   50,
- /*    10 */    33,   34,    3,   36,   41,   42,   39,   41,   42,   43,
- /*    20 */    21,   22,   43,    5,    7,    8,   51,   60,    6,   15,
- /*    30 */    16,   20,   28,   25,    2,    4,   53,   10,    3,   47,
- /*    40 */    94,   14,   49,   31,   32,    9,   56,   19,   27,   37,
- /*    50 */    38,   65,   45,   46,   67,   69,   12,   13,   23,   25,
- /*    60 */    24,   18,   29,   26,   30,   35,   54,   40,   44,   48,
- /*    70 */    68,   55,   57,   58,   95,
+ /*     0 */    70,    3,   51,   74,   77,   15,   16,   73,  143,    1,
+ /*    10 */    85,    4,   75,   76,   51,   11,   17,   52,   16,   50,
+ /*    20 */    33,   34,   53,   36,   41,   42,   39,   41,   42,    5,
+ /*    30 */     7,    8,   56,   59,   43,   86,    6,   43,   20,   28,
+ /*    40 */    25,   65,   91,   78,   69,    9,    3,    2,    4,   21,
+ /*    50 */    22,  120,   14,   19,   27,   31,   32,   47,   49,   37,
+ /*    60 */    38,   79,   84,   66,   67,   45,   46,   68,   69,   10,
+ /*    70 */    71,   69,  123,   81,   82,   93,   13,   95,   12,   18,
+ /*    80 */    23,   80,   24,   25,   29,   26,   30,   35,   44,   40,
+ /*    90 */    54,   55,   94,   57,  121,   48,   58,   63,   61,   60,
+ /*   100 */    64,   62,  122,   72,  124,  121,  121,   83,
 };
 static const YYCODETYPE yy_lookahead[] = {
- /*     0 */    28,   29,   30,   31,   36,   37,   41,   39,   40,   44,
- /*    10 */    45,   46,   11,   47,   48,   49,   47,   48,   49,   53,
- /*    20 */    17,   18,   53,   32,   33,   34,   36,    0,   11,   39,
- /*    30 */    40,   19,   20,   21,   30,   31,   12,   14,   11,   23,
- /*    40 */    15,   16,   26,   17,   18,   35,   22,   50,   51,   15,
- /*    50 */    16,   11,   24,   25,   11,   11,   38,   15,   36,   21,
- /*    60 */    51,   42,   17,   52,   43,   14,   13,   15,   54,   54,
- /*    70 */    14,   36,   13,   36,   11,
+ /*     0 */    14,   11,   39,   17,   18,   42,   43,   21,   31,   32,
+ /*    10 */    33,   34,   26,   27,   39,   40,   44,   42,   43,   47,
+ /*    20 */    48,   49,   12,   50,   51,   52,   50,   51,   52,   35,
+ /*    30 */    36,   37,   22,   23,   61,    0,   11,   61,   19,   20,
+ /*    40 */    21,   57,   11,   59,   60,   38,   11,   33,   34,   17,
+ /*    50 */    18,   15,   16,   53,   54,   17,   18,   28,   29,   15,
+ /*    60 */    16,   14,   39,   15,   16,   26,   27,   59,   60,   14,
+ /*    70 */    59,   60,   25,   15,   16,   11,   15,   11,   41,   45,
+ /*    80 */    39,   58,   54,   21,   17,   55,   46,   14,   62,   15,
+ /*    90 */    13,   39,   14,   13,   11,   62,   39,   25,   39,   24,
+ /*   100 */    14,   56,   11,   15,   25,   63,   63,   39,
 };
-#define YY_SHIFT_USE_DFLT (-1)
+#define YY_SHIFT_USE_DFLT (-15)
 static const signed char yy_shift_ofst[] = {
- /*     0 */     1,   27,   -1,   -1,   24,   17,   -1,   40,   23,   43,
- /*    10 */     3,   25,   42,   44,    3,   -1,   26,   -1,   12,   -1,
- /*    20 */     3,   -1,   -1,   38,   -1,   -1,   -1,   -1,   45,   -1,
- /*    30 */    -1,   -1,   -1,   -1,   51,   16,   34,   -1,   16,   52,
- /*    40 */    -1,   -1,   -1,   28,   -1,   -1,   -1,   28,   -1,   -1,
- /*    50 */    -1,   -1,   -1,   53,    3,   56,   59,    3,   63,   -1,
+ /*     0 */   -10,   35,  -15,  -15,   10,   25,  -15,   31,   55,   64,
+ /*    10 */    32,   36,   61,   66,   32,  -15,   38,  -15,   19,  -15,
+ /*    20 */    32,  -15,  -15,   62,  -15,  -15,  -15,  -15,   67,  -15,
+ /*    30 */   -15,  -15,  -15,  -15,   73,   29,   44,  -15,   29,   74,
+ /*    40 */   -15,  -15,  -15,   39,  -15,  -15,  -15,   39,  -15,  -15,
+ /*    50 */   -15,  -15,  -15,   77,   32,   78,   80,   32,   83,   75,
+ /*    60 */    32,   47,   72,   86,  -14,   48,   91,  -14,  -15,  -15,
+ /*    70 */   -14,   88,  -15,  -15,  -15,  -15,  -15,  -15,  -15,   32,
+ /*    80 */    58,   79,   32,  -15,  -15,  -15,
 };
-#define YY_REDUCE_USE_DFLT (-36)
+#define YY_REDUCE_USE_DFLT (-38)
 static const signed char yy_reduce_ofst[] = {
- /*     0 */   -28,    4,  -36,  -36,   -9,  -36,  -36,  -36,   10,  -36,
- /*    10 */   -32,   18,  -36,  -36,  -10,  -36,  -35,   19,   -3,  -36,
- /*    20 */    22,  -36,  -36,    9,  -36,   11,  -36,  -36,   21,  -36,
- /*    30 */   -36,  -36,  -36,  -36,  -36,  -34,  -36,  -36,  -31,  -36,
- /*    40 */   -36,  -36,  -36,   14,  -36,  -36,  -36,   15,  -36,  -36,
- /*    50 */   -36,  -36,  -36,  -36,   35,  -36,  -36,   37,  -36,  -36,
+ /*     0 */   -23,   14,  -38,  -38,   -6,  -38,  -38,  -38,    7,  -38,
+ /*    10 */   -25,   37,  -38,  -38,  -37,  -38,  -28,   34,    0,  -38,
+ /*    20 */    41,  -38,  -38,   28,  -38,   30,  -38,  -38,   40,  -38,
+ /*    30 */   -38,  -38,  -38,  -38,  -38,  -27,  -38,  -38,  -24,  -38,
+ /*    40 */   -38,  -38,  -38,   26,  -38,  -38,  -38,   33,  -38,  -38,
+ /*    50 */   -38,  -38,  -38,  -38,   52,  -38,  -38,   57,  -38,  -38,
+ /*    60 */    59,   45,  -38,  -38,  -16,  -38,  -38,    8,  -38,  -38,
+ /*    70 */    11,  -38,  -38,  -38,  -38,  -38,  -38,  -38,  -38,   23,
+ /*    80 */   -38,  -38,   68,  -38,  -38,  -38,
 };
 static const YYACTIONTYPE yy_default[] = {
- /*     0 */    66,   66,   61,   63,  102,  102,   64,  102,  102,  102,
- /*    10 */   102,  102,  102,  102,  102,   70,   79,   88,   72,   87,
- /*    20 */   102,   77,   78,  102,   89,   93,   92,   90,  102,   74,
- /*    30 */    91,   75,   76,   80,   81,  101,  102,   82,  101,  102,
- /*    40 */    83,   85,   86,  102,   96,   98,   99,  102,   97,  100,
- /*    50 */    84,   73,   71,  102,  102,  102,  102,  102,  102,   62,
+ /*     0 */    92,   92,   87,   89,  142,  142,   90,  142,  142,  142,
+ /*    10 */   142,  142,  142,  142,  142,   96,  105,  114,   98,  113,
+ /*    20 */   142,  103,  104,  142,  115,  119,  118,  116,  142,  100,
+ /*    30 */   117,  101,  102,  106,  107,  141,  142,  108,  141,  142,
+ /*    40 */   109,  111,  112,  142,  136,  138,  139,  142,  137,  140,
+ /*    50 */   110,   99,   97,  142,  142,  142,  142,  142,  142,  142,
+ /*    60 */   142,  142,  142,  142,  142,  142,  142,  142,  127,  129,
+ /*    70 */   142,  142,  130,  131,  132,  133,  134,  135,  128,  142,
+ /*    80 */   142,  142,  142,  125,  126,   88,
 };
 #define YY_SZ_ACTTAB int(sizeof(yy_action)/sizeof(yy_action[0]))
 
@@ -273,15 +291,17 @@ static const char *const yyTokenName[] = {
   "AGG_FUNCTION",  "AGG_COLUMN",    "CONST_FUNC",    "SEMI",        
   "CREATE",        "TABLE",         "LP",            "RP",          
   "COMMA",         "ID",            "STRING",        "CONSTRAINT",  
-  "DEFAULT",       "NULL",          "DROP",          "MINUS",       
-  "INTEGER",       "FLOAT",         "PLUS",          "error",       
-  "input",         "cmdlist",       "ecmd",          "explain",     
-  "cmdx",          "cmd",           "create_table",  "create_table_args",
-  "nm",            "columnlist",    "conslist_opt",  "column",      
-  "columnid",      "type",          "carglist",      "id",          
-  "ids",           "typetoken",     "typename",      "signed",      
-  "plus_num",      "minus_num",     "carg",          "ccons",       
-  "onconf",        "plus_opt",      "number",      
+  "DEFAULT",       "NULL",          "DROP",          "INSERT",      
+  "INTO",          "VALUES",        "INTEGER",       "FLOAT",       
+  "MINUS",         "PLUS",          "error",         "input",       
+  "cmdlist",       "ecmd",          "explain",       "cmdx",        
+  "cmd",           "create_table",  "create_table_args",  "nm",          
+  "columnlist",    "conslist_opt",  "column",        "columnid",    
+  "type",          "carglist",      "id",            "ids",         
+  "typetoken",     "typename",      "signed",        "plus_num",    
+  "minus_num",     "carg",          "ccons",         "onconf",      
+  "inscollist_opt",  "itemlist",      "inscollist",    "expr",        
+  "term",          "plus_opt",      "number",      
 };
 #endif /* NDEBUG */
 
@@ -325,12 +345,26 @@ static const char *const yyRuleName[] = {
  /*  33 */ "onconf ::=",
  /*  34 */ "conslist_opt ::=",
  /*  35 */ "cmd ::= DROP TABLE nm",
- /*  36 */ "plus_num ::= plus_opt number",
- /*  37 */ "minus_num ::= MINUS number",
- /*  38 */ "number ::= INTEGER",
- /*  39 */ "number ::= FLOAT",
- /*  40 */ "plus_opt ::= PLUS",
- /*  41 */ "plus_opt ::=",
+ /*  36 */ "cmd ::= INSERT INTO nm inscollist_opt VALUES LP itemlist RP",
+ /*  37 */ "inscollist_opt ::=",
+ /*  38 */ "inscollist_opt ::= LP inscollist RP",
+ /*  39 */ "inscollist ::= inscollist COMMA nm",
+ /*  40 */ "inscollist ::= nm",
+ /*  41 */ "itemlist ::= itemlist COMMA expr",
+ /*  42 */ "itemlist ::= expr",
+ /*  43 */ "expr ::= term",
+ /*  44 */ "expr ::= LP expr RP",
+ /*  45 */ "term ::= NULL",
+ /*  46 */ "expr ::= ID",
+ /*  47 */ "term ::= INTEGER",
+ /*  48 */ "term ::= FLOAT",
+ /*  49 */ "term ::= STRING",
+ /*  50 */ "plus_num ::= plus_opt number",
+ /*  51 */ "minus_num ::= MINUS number",
+ /*  52 */ "number ::= INTEGER",
+ /*  53 */ "number ::= FLOAT",
+ /*  54 */ "plus_opt ::= PLUS",
+ /*  55 */ "plus_opt ::=",
 };
 #endif /* NDEBUG */
 
@@ -388,6 +422,23 @@ static void yy_destructor(YYCODETYPE yymajor, YYMINORTYPE *yypminor){
     ** which appear on the RHS of the rule, but which are not used
     ** inside the C code.
     */
+    case 56:
+    case 58:
+#line 138 "/home/whisly/mdb/sqlparser/parser.y"
+{mdbIdListDelete((yypminor->yy10));}
+#line 431 "/home/whisly/mdb/sqlparser/parser.cpp"
+      break;
+    case 57:
+#line 150 "/home/whisly/mdb/sqlparser/parser.y"
+{mdbExprListDelete((yypminor->yy70));}
+#line 436 "/home/whisly/mdb/sqlparser/parser.cpp"
+      break;
+    case 59:
+    case 60:
+#line 159 "/home/whisly/mdb/sqlparser/parser.y"
+{mdbExprDelete((yypminor->yy74));}
+#line 442 "/home/whisly/mdb/sqlparser/parser.cpp"
+      break;
     default:  break;   /* If no destructor action specified: do nothing */
   }
 }
@@ -562,48 +613,62 @@ static const struct {
   YYCODETYPE lhs;         /* Symbol on the left-hand side of the rule */
   unsigned char nrhs;     /* Number of right-hand side symbols in the rule */
 } yyRuleInfo[] = {
-  { 28, 1 },
-  { 29, 2 },
-  { 29, 1 },
-  { 30, 1 },
-  { 30, 3 },
+  { 31, 1 },
+  { 32, 2 },
   { 32, 1 },
-  { 31, 0 },
-  { 33, 2 },
-  { 34, 3 },
-  { 35, 4 },
+  { 33, 1 },
+  { 33, 3 },
+  { 35, 1 },
+  { 34, 0 },
+  { 36, 2 },
   { 37, 3 },
-  { 37, 1 },
-  { 39, 3 },
+  { 38, 4 },
+  { 40, 3 },
   { 40, 1 },
+  { 42, 3 },
   { 43, 1 },
-  { 44, 1 },
-  { 44, 1 },
-  { 36, 1 },
-  { 36, 1 },
-  { 41, 0 },
-  { 41, 1 },
-  { 45, 1 },
-  { 45, 4 },
-  { 45, 6 },
   { 46, 1 },
   { 47, 1 },
   { 47, 1 },
-  { 42, 2 },
-  { 42, 0 },
-  { 50, 3 },
+  { 39, 1 },
+  { 39, 1 },
+  { 44, 0 },
+  { 44, 1 },
+  { 48, 1 },
+  { 48, 4 },
+  { 48, 6 },
+  { 49, 1 },
   { 50, 1 },
-  { 50, 2 },
-  { 51, 2 },
-  { 52, 0 },
-  { 38, 0 },
-  { 33, 3 },
-  { 48, 2 },
-  { 49, 2 },
-  { 54, 1 },
-  { 54, 1 },
+  { 50, 1 },
+  { 45, 2 },
+  { 45, 0 },
+  { 53, 3 },
   { 53, 1 },
-  { 53, 0 },
+  { 53, 2 },
+  { 54, 2 },
+  { 55, 0 },
+  { 41, 0 },
+  { 36, 3 },
+  { 36, 8 },
+  { 56, 0 },
+  { 56, 3 },
+  { 58, 3 },
+  { 58, 1 },
+  { 57, 3 },
+  { 57, 1 },
+  { 59, 1 },
+  { 59, 3 },
+  { 60, 1 },
+  { 59, 1 },
+  { 60, 1 },
+  { 60, 1 },
+  { 60, 1 },
+  { 51, 2 },
+  { 52, 2 },
+  { 62, 1 },
+  { 62, 1 },
+  { 61, 1 },
+  { 61, 0 },
 };
 
 static void yy_accept(yyParser*);  /* Forward Declaration */
@@ -655,96 +720,160 @@ static void yy_reduce(
       case 6:
 #line 42 "/home/whisly/mdb/sqlparser/parser.y"
 {mdbBeginParse(pParse,0);}
-#line 660 "/home/whisly/mdb/sqlparser/parser.cpp"
+#line 725 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
       case 8:
 #line 47 "/home/whisly/mdb/sqlparser/parser.y"
 {
-	mdbStartTable(pParse,&yymsp[0].minor.yy78);
+	mdbStartTable(pParse,&yymsp[0].minor.yy126);
 	pParse->stype=CRT;
 }
-#line 668 "/home/whisly/mdb/sqlparser/parser.cpp"
+#line 733 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
       case 9:
 #line 54 "/home/whisly/mdb/sqlparser/parser.y"
 {
 	mdbEndTable(pParse);
 }
-#line 675 "/home/whisly/mdb/sqlparser/parser.cpp"
+#line 740 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
       case 13:
 #line 63 "/home/whisly/mdb/sqlparser/parser.y"
 {
-	mdbAddColumn(pParse,&yymsp[0].minor.yy78);
-	yygotominor.yy78=yymsp[0].minor.yy78;
+	mdbAddColumn(pParse,&yymsp[0].minor.yy126);
+	yygotominor.yy126=yymsp[0].minor.yy126;
 }
-#line 683 "/home/whisly/mdb/sqlparser/parser.cpp"
+#line 748 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
       case 14:
       case 15:
       case 16:
       case 17:
       case 18:
-      case 38:
-      case 39:
+      case 52:
+      case 53:
 #line 68 "/home/whisly/mdb/sqlparser/parser.y"
-{yygotominor.yy78=yymsp[0].minor.yy0;}
-#line 694 "/home/whisly/mdb/sqlparser/parser.cpp"
+{yygotominor.yy126=yymsp[0].minor.yy0;}
+#line 759 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
       case 20:
 #line 83 "/home/whisly/mdb/sqlparser/parser.y"
 {
-	mdbAddColumnType(pParse,&yymsp[0].minor.yy78);
+	mdbAddColumnType(pParse,&yymsp[0].minor.yy126);
 }
-#line 701 "/home/whisly/mdb/sqlparser/parser.cpp"
+#line 766 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
       case 21:
       case 24:
-      case 36:
-      case 37:
+      case 50:
+      case 51:
 #line 87 "/home/whisly/mdb/sqlparser/parser.y"
-{yygotominor.yy78=yymsp[0].minor.yy78;}
-#line 709 "/home/whisly/mdb/sqlparser/parser.cpp"
+{yygotominor.yy126=yymsp[0].minor.yy126;}
+#line 774 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
       case 22:
 #line 88 "/home/whisly/mdb/sqlparser/parser.y"
 {
-	yygotominor.yy78.z=yymsp[-3].minor.yy78.z;
-	yygotominor.yy78.n=&yymsp[0].minor.yy0.z[yymsp[0].minor.yy0.n]-yymsp[-3].minor.yy78.z;
+	yygotominor.yy126.z=yymsp[-3].minor.yy126.z;
+	yygotominor.yy126.n=&yymsp[0].minor.yy0.z[yymsp[0].minor.yy0.n]-yymsp[-3].minor.yy126.z;
 }
-#line 717 "/home/whisly/mdb/sqlparser/parser.cpp"
+#line 782 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
       case 23:
 #line 93 "/home/whisly/mdb/sqlparser/parser.y"
 {
-	yygotominor.yy78.z=yymsp[-5].minor.yy78.z;
-	yygotominor.yy78.n=&yymsp[0].minor.yy0.z[yymsp[0].minor.yy0.n]-yymsp[-5].minor.yy78.z;
+	yygotominor.yy126.z=yymsp[-5].minor.yy126.z;
+	yygotominor.yy126.n=&yymsp[0].minor.yy0.z[yymsp[0].minor.yy0.n]-yymsp[-5].minor.yy126.z;
 	/*
-	char *tmp=(char *)malloc(yygotominor.yy78.n+1);
-	bzero(tmp,yygotominor.yy78.n+1);
-	strncpy(tmp,yygotominor.yy78.z,yygotominor.yy78.n);
+	char *tmp=(char *)malloc(yygotominor.yy126.n+1);
+	bzero(tmp,yygotominor.yy126.n+1);
+	strncpy(tmp,yygotominor.yy126.z,yygotominor.yy126.n);
 	printf("typetoken:%s\n",tmp);
 	*/
 }
-#line 731 "/home/whisly/mdb/sqlparser/parser.cpp"
+#line 796 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
       case 25:
 #line 108 "/home/whisly/mdb/sqlparser/parser.y"
-{yygotominor.yy42=atoi(reinterpret_cast<const char*>(yymsp[0].minor.yy78.z));}
-#line 736 "/home/whisly/mdb/sqlparser/parser.cpp"
+{yygotominor.yy4=atoi(reinterpret_cast<const char*>(yymsp[0].minor.yy126.z));}
+#line 801 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
       case 26:
 #line 109 "/home/whisly/mdb/sqlparser/parser.y"
-{yygotominor.yy42=-atoi(reinterpret_cast<const char*>(yymsp[0].minor.yy78.z));}
-#line 741 "/home/whisly/mdb/sqlparser/parser.cpp"
+{yygotominor.yy4=-atoi(reinterpret_cast<const char*>(yymsp[0].minor.yy126.z));}
+#line 806 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
       case 35:
 #line 127 "/home/whisly/mdb/sqlparser/parser.y"
 {
 	pParse->stype=DROP;
-	mdbDropTable(pParse,&yymsp[0].minor.yy78);
+	mdbDropTable(pParse,&yymsp[0].minor.yy126);
 }
-#line 749 "/home/whisly/mdb/sqlparser/parser.cpp"
+#line 814 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
+      case 36:
+#line 133 "/home/whisly/mdb/sqlparser/parser.y"
+{
+	mdbInsert(pParse,&yymsp[-5].minor.yy126,yymsp[-4].minor.yy10,yymsp[-1].minor.yy70);
+}
+#line 821 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
+      case 37:
+#line 142 "/home/whisly/mdb/sqlparser/parser.y"
+{yygotominor.yy10=0;}
+#line 826 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
+      case 38:
+#line 143 "/home/whisly/mdb/sqlparser/parser.y"
+{yygotominor.yy10=yymsp[-1].minor.yy10;}
+#line 831 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
+      case 39:
+#line 145 "/home/whisly/mdb/sqlparser/parser.y"
+{yygotominor.yy10=mdbIdListAppend(yymsp[-2].minor.yy10,&yymsp[0].minor.yy126);}
+#line 836 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
+      case 40:
+#line 147 "/home/whisly/mdb/sqlparser/parser.y"
+{ yygotominor.yy10=mdbIdListAppend(0,&yymsp[0].minor.yy126);}
+#line 841 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
+      case 41:
+#line 152 "/home/whisly/mdb/sqlparser/parser.y"
+{yygotominor.yy70=mdbExprListAppend(yymsp[-2].minor.yy70,yymsp[0].minor.yy74,0);}
+#line 846 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
+      case 42:
+#line 153 "/home/whisly/mdb/sqlparser/parser.y"
+{yygotominor.yy70=mdbExprListAppend(0,yymsp[0].minor.yy74,0);}
+#line 851 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
+      case 43:
+#line 163 "/home/whisly/mdb/sqlparser/parser.y"
+{yygotominor.yy74=yymsp[0].minor.yy74;}
+#line 856 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
+      case 44:
+#line 164 "/home/whisly/mdb/sqlparser/parser.y"
+{yygotominor.yy74=yymsp[-1].minor.yy74;mdbExprSpan(yygotominor.yy74,&yymsp[-2].minor.yy0,&yymsp[0].minor.yy0);}
+#line 861 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
+      case 45:
+#line 165 "/home/whisly/mdb/sqlparser/parser.y"
+{yygotominor.yy74 = mdbExpr(yymsp[0].major,0,0,&yymsp[0].minor.yy0);}
+#line 866 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
+      case 46:
+#line 166 "/home/whisly/mdb/sqlparser/parser.y"
+{yygotominor.yy74 = mdbExpr(TK_ID,0,0,&yymsp[0].minor.yy0);}
+#line 871 "/home/whisly/mdb/sqlparser/parser.cpp"
+        break;
+      case 47:
+      case 48:
+      case 49:
+#line 169 "/home/whisly/mdb/sqlparser/parser.y"
+{yygotominor.yy74=mdbExpr(yymsp[0].major,0,0,&yymsp[0].minor.yy0);}
+#line 878 "/home/whisly/mdb/sqlparser/parser.cpp"
         break;
   };
   yygoto = yyRuleInfo[yyruleno].lhs;
@@ -804,7 +933,7 @@ static void yy_syntax_error(
 #line 27 "/home/whisly/mdb/sqlparser/parser.y"
 
 	printf("syntax error!\n");
-#line 810 "/home/whisly/mdb/sqlparser/parser.cpp"
+#line 939 "/home/whisly/mdb/sqlparser/parser.cpp"
   mdbParserARG_STORE; /* Suppress warning about unused %extra_argument variable */
 }
 

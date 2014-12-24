@@ -128,6 +128,48 @@ cmd ::=DROP TABLE nm(X).{
 	pParse->stype=DROP;
 	mdbDropTable(pParse,&X);
 }
+/////////////////////The insert command ///////////////////////////////
+
+cmd ::=INSERT INTO nm(X) inscollist_opt(F) VALUES LP itemlist(Y) RP.{
+	mdbInsert(pParse,&X,F,Y);
+}
+
+%type inscollist_opt{IdList *}
+%destructor inscollist_opt {mdbIdListDelete($$);}
+%type inscollist{IdList *}
+%destructor inscollist {mdbIdListDelete($$);}
+
+inscollist_opt(A) ::=. {A=0;}
+inscollist_opt(A) ::=LP inscollist(X) RP. {A=X;}
+
+inscollist(A) ::=inscollist(X) COMMA nm(Y).{A=mdbIdListAppend(X,&Y);}
+
+inscollist(A) ::=nm(Y).{ A=mdbIdListAppend(0,&Y);}
+
+%type itemlist {ExprList*}
+%destructor itemlist {mdbExprListDelete($$);}
+
+itemlist(A) ::=itemlist(X) COMMA  expr(Y) .{A=mdbExprListAppend(X,Y,0);}
+itemlist(A) ::=expr(X). {A=mdbExprListAppend(0,X,0);}
+
+
+
+////////////////////////////Expression Processing////////////////////
+%type expr {Expr *}
+%destructor expr {mdbExprDelete($$);}
+%type term {Expr *}
+%destructor term {mdbExprDelete($$);}
+
+expr(A) ::=term(X). {A=X;}
+expr(A) ::=LP(B) expr(X) RP(E). {A=X;mdbExprSpan(A,&B,&E);}
+term(A) ::= NULL(X). {A = mdbExpr(@X,0,0,&X);}
+expr(A) ::=ID(X). {A = mdbExpr(TK_ID,0,0,&X);}
+
+
+term(A) ::=INTEGER(X). {A=mdbExpr(@X,0,0,&X);}
+term(A) ::=FLOAT(X). {A=mdbExpr(@X,0,0,&X);}
+term(A) ::=STRING(X). {A=mdbExpr(@X,0,0,&X);}
+
 /////////////////the pragma command/////////////////////////
 
 plus_num(A) ::=plus_opt number(X). {A=X;}

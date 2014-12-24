@@ -20,7 +20,10 @@
 #define TK_DEFAULT                        20
 #define TK_NULL                           21
 #define TK_DROP                           22
-#define TK_MINUS                          23
-#define TK_INTEGER                        24
-#define TK_FLOAT                          25
-#define TK_PLUS                           26
+#define TK_INSERT                         23
+#define TK_INTO                           24
+#define TK_VALUES                         25
+#define TK_INTEGER                        26
+#define TK_FLOAT                          27
+#define TK_MINUS                          28
+#define TK_PLUS                           29
